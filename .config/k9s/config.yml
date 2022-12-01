@@ -1,0 +1,162 @@
+k9s:
+  refreshRate: 2
+  maxConnRetry: 5
+  enableMouse: false
+  headless: false
+  logoless: false
+  crumbsless: false
+  readOnly: false
+  noExitOnCtrlC: false
+  noIcons: false
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 60
+    fullScreenLogs: false
+    textWrap: false
+    showTime: false
+  currentContext: aks-techex-dev
+  currentCluster: aks-techex-dev
+  clusters:
+    aks-techex-dev:
+      namespace:
+        active: trackmyinvest
+        lockFavorites: false
+        favorites:
+        - all
+        - trackmyinvest
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    aks-techex-prod:
+      namespace:
+        active: ingress-nginx
+        lockFavorites: false
+        favorites:
+        - ingress-nginx
+        - all
+        - trackmywork
+        - default
+      view:
+        active: svc
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production:
+      namespace:
+        active: traefikee
+        lockFavorites: false
+        favorites:
+        - external-secrets
+        - datadog
+        - traefikee
+        - microservices
+        - default
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing:
+      namespace:
+        active: microservices
+        lockFavorites: false
+        favorites:
+        - commercetools-extensions
+        - datadog
+        - traefikee
+        - microservices
+        - all
+        - default
+      view:
+        active: middleware
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    haute-cuisine-eks-staging:
+      namespace:
+        active: traefikee
+        lockFavorites: false
+        favorites:
+        - traefikee
+        - datadog
+        - all
+        - microservices
+        - default
+      view:
+        active: ctx
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    k3s:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - all
+        - pihole
+        - default
+      view:
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  screenDumpDir: /var/folders/01/3y5lb3fs17d6g4jkgmt9fm8c0000gn/T/k9s-screens-marvinkurock

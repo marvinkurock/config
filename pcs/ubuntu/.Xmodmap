@@ -1,0 +1,4 @@
+keycode 133 = Mode_switch
+keycode 47 = semicolon colon odiaeresis Odiaeresis
+keycode 48 = apostrophe quotedbl adiaeresis Adiaeresis
+keycode 34 = bracketleft braceleft udiaeresis Udiaeresis
