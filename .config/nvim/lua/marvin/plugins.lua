@@ -88,6 +88,8 @@ packer.startup(function(use)
     "williamboman/nvim-lsp-installer",
     "neovim/nvim-lspconfig",
   }
+  use 'github/copilot.vim'
+
   -- lsp completions
   use "onsails/lspkind.nvim"
   use "hrsh7th/nvim-cmp"
