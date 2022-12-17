@@ -20,5 +20,10 @@ require('nvim-tree').setup {
       ".DS_Store"
     },
     exclude = {}
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
   }
 }

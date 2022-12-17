@@ -76,6 +76,7 @@ packer.startup(function(use)
   }
   use 'ThePrimeagen/harpoon'
   use 'folke/todo-comments.nvim'
+  use 'mbbill/undotree'
 
   -- lsp
   use 'hashivim/vim-terraform'

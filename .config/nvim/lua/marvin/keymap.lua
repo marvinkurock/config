@@ -63,13 +63,18 @@ keymap("n", "<leader>qq", ":qa<cr>", {})
 keymap("n", "<leader>qa", ":%bd|e#|bd#<cr>", {})
 keymap("v", "<leader>#", "gc", {})
 keymap("v", "<leader>\\", "gc", {})
+
+keymap("n", "<leader>u", ":UndotreeToggle<cr>", opts)
+keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {}) -- replace word under cursor
+keymap("n", "<C-j>", ":cnext<cr>", opts)
+keymap("n", "<C-k>", ":cprev<cr>", opts)
 --
 -- -- Normal --
 -- -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-Left>", ":vertical resize -5<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +5<cr>", opts)
