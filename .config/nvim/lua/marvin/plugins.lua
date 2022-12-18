@@ -89,6 +89,7 @@ packer.startup(function(use)
     "neovim/nvim-lspconfig",
   }
   use 'github/copilot.vim'
+  use 'tpope/vim-fugitive'
 
   -- lsp completions
   use "onsails/lspkind.nvim"

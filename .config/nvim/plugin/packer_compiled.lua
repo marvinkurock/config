@@ -310,6 +310,11 @@ _G.packer_plugins = {
     path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-helm"] = {
     loaded = true,
     path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/vim-helm",
