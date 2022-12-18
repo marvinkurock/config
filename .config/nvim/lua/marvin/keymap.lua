@@ -35,6 +35,7 @@ keymap("n", "<leader>nw", ":set wrap!<cr>", opts)
 keymap("v", "<leader>yy", '"+y', {})
 keymap("n", "<leader>t", ":FloatermNew --height=0.95 --width=0.95<cr>", opts)
 keymap("n", "<leader>tg", ":FloatermNew --height=0.95 --width=0.95 --cwd=<buffer> lazygit<cr>", opts)
+keymap("n", "<leader>G", ":0G<cr>", opts)
 keymap("n", "<leader>cf", ":lua vim.lsp.buf.format({ async = true })<cr>", opts)
 
 keymap("n", "<F5>", ":lua require('dap').continue()<cr>", opts)
