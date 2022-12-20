@@ -175,6 +175,8 @@ alias la="ls -la"
 alias lg="lazygit"
 
 alias cat="bat -p"
+alias v=nvim
+alias vim=nvim
 
 alias ranger=". ranger"
 # alias tf=terraform@1
