@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
 - /Users/marvinkurock/development/configs
-- /Users/marvinkurock/development/tqgg/infrastructure
-- /Users/marvinkurock/development/tqgg/k8s
 - /Users/marvinkurock/development/techex/TrackMyInvestments
+- /Users/marvinkurock/development/tqgg/k8s
+- /Users/marvinkurock/development/tqgg/infrastructure
 - /Users/marvinkurock/development/tqgg/service-authentication
 - /Users/marvinkurock/development/tqgg/commercetools-bundles-starter
 startuppopupversion: 5
