@@ -43,6 +43,8 @@ for _, server in ipairs(installed_servers) do
     }
   elseif server.name == "rust_analyzer" then
     -- do nothing. let rust tools set this up
+  elseif server.name == 'dartls' then
+    -- do nothing
   else
     nvim_lsp[server.name].setup {
       on_attach = cfg.on_attach,
@@ -50,6 +52,15 @@ for _, server in ipairs(installed_servers) do
     }
   end
 end
+
+require("flutter-tools").setup {
+  lsp = {
+    on_attach = function ()
+      local opts = { noremap = true, silent = true }
+      vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
+    end
+  }
+}
 
 require("rust-tools").setup {
   server = {

@@ -91,6 +91,7 @@ packer.startup(function(use)
   use 'github/copilot.vim'
   use 'tpope/vim-fugitive'
   use 'junegunn/gv.vim'
+  use 'akinsho/flutter-tools.nvim'
 
   -- lsp completions
   use "onsails/lspkind.nvim"
