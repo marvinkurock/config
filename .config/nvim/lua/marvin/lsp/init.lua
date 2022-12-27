@@ -54,6 +54,10 @@ for _, server in ipairs(installed_servers) do
 end
 
 require("flutter-tools").setup {
+  dev_log = {
+    enabled = true,
+    open_cmd = "10new", -- command to use to open the log buffer
+  },
   lsp = {
     on_attach = function ()
       local opts = { noremap = true, silent = true }
