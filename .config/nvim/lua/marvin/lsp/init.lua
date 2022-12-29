@@ -6,6 +6,9 @@ local saga = require("lspsaga")
 saga.init_lsp_saga({
     -- your configuration
 })
+require('lspconfig.ui.windows').default_options = {
+  border = "rounded"
+}
 
 local nvim_lsp = require 'lspconfig'
 local luasnip = require("luasnip")
@@ -81,4 +84,5 @@ require("rust-tools").setup {
 }
 
 require "lsp_signature".setup({
+  zindex = 20
 })

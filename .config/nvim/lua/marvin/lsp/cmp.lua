@@ -24,6 +24,11 @@ local source_mapping = {
   path = "[Path]"
 }
 cmp.setup({
+  window = {
+    documentation = {
+      border = "rounded"
+    }
+  },
   completion = {
     completeopt = 'menu,menuone,noinsert'
     -- completeopt = 'menu,menuone,noselect'
