@@ -114,7 +114,7 @@ packer.startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
-  -- use "onsails/lspkind.nvim"
+  use "onsails/lspkind.nvim"
   -- use "hrsh7th/nvim-cmp"
   -- use 'hrsh7th/cmp-nvim-lsp'
   -- use 'hrsh7th/cmp-buffer'

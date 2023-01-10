@@ -78,8 +78,30 @@ lsp.set_preferences({
   set_lsp_keymaps = { omit = { '<tab>', '<Tab>' } },
 })
 
+
+
+local lspkind = require('lspkind')
+local source_mapping = {
+  buffer = "[Buffer]",
+  nvim_lsp = "[LSP]",
+  luasnip = "[Lua]",
+  cmp_tabnine = "[TN]",
+  path = "[Path]"
+}
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.kind = lspkind.presets.default[vim_item.kind]
+      local menu = source_mapping[entry.source.name]
+      vim_item.menu = menu
+      return vim_item
+    end
+  },
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+    -- completeopt = 'menu,menuone,noselect'
+  },
 })
 
 function format()
