@@ -15,8 +15,8 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: haute-cuisine-eks-testing
-  currentCluster: arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing
+  currentContext: haute-cuisine-eks-production
+  currentCluster: arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production
   clusters:
     aks-techex-dev:
       namespace:
@@ -63,7 +63,7 @@ k9s:
       portForwardAddress: localhost
     arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production:
       namespace:
-        active: all
+        active: microservices
         lockFavorites: false
         favorites:
         - keda
@@ -75,7 +75,7 @@ k9s:
         - microservices
         - default
       view:
-        active: pods
+        active: secret
       featureGates:
         nodeShell: false
       shellPod:
@@ -89,7 +89,7 @@ k9s:
       portForwardAddress: localhost
     arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing:
       namespace:
-        active: traefikee
+        active: microservices
         lockFavorites: false
         favorites:
         - keda
@@ -114,7 +114,7 @@ k9s:
       portForwardAddress: localhost
     haute-cuisine-eks-staging:
       namespace:
-        active: all
+        active: microservices
         lockFavorites: false
         favorites:
         - kube-system
@@ -124,7 +124,7 @@ k9s:
         - microservices
         - default
       view:
-        active: pods
+        active: es
       featureGates:
         nodeShell: false
       shellPod:

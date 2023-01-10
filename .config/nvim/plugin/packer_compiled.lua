@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",

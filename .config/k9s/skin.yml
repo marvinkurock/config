@@ -1,4 +1,5 @@
-base: &base "#1e1e2e"
+basea: &basea "#1e1e2e"
+base: &base "default"
 blue: &blue "#89b4fa"
 crust: &crust "#11111b"
 flamingo: &flamingo "#f2cdcd"
@@ -36,7 +37,7 @@ k9s:
   # Command prompt styles
   prompt:
     fgColor: *text
-    bgColor: *mantle
+    bgColor: *base
     suggestColor: *blue
 
   # ClusterInfoView styles.
@@ -70,7 +71,7 @@ k9s:
 
     # CrumbView attributes for history navigation.
     crumbs:
-      fgColor: *base
+      fgColor: *basea
       bgColor: *maroon
       activeColor: *flamingo
 

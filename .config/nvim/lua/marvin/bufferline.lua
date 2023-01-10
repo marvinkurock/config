@@ -7,31 +7,31 @@ require('bufferline').setup {
   highlights = {
     buffer_selected = {
       fg = '#a6e3a1',
-      bg = '#313244',
+      bg = 'none',
       bold = true,
       italic = false,
     },
     close_button_selected = {
-      bg = '#313244',
+      bg = 'none',
     },
     modified_selected = {
-      bg = '#313244',
+      bg = 'none',
     },
     indicator_selected = {
-      bg = '#313244',
+      bg = 'none',
     },
     -- pick_selected = {
     --   bold = true,
-    --   bg = '#313244',
+    --   bg = 'none',
     -- },
     separator_selected = {
-      bg = '#313244',
+      bg = 'none',
     },
     duplicate_selected = {
-      bg = '#313244',
+      bg = 'none',
     },
     background = {
-      bg = "#1e1e2e"
+      bg = 'none',
     }
   }
 }
