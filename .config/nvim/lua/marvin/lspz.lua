@@ -113,12 +113,11 @@ function format()
   })
 end
 
-lsp.on_attach(function(client, bufnr)
+function on_attach(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
-
   vim.keymap.set("n", "<leader>cf", format, opts)
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  -- vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
@@ -129,6 +128,21 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
   vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
+end
+lsp.on_attach(on_attach)
 
 lsp.setup()
+
+require("flutter-tools").setup {
+  dev_log = {
+    enabled = true,
+    open_cmd = "10new", -- command to use to open the log buffer
+  },
+  lsp = {
+    on_attach = function (client, bufnr)
+      on_attach(client, bufnr)
+      local opts = { noremap = true, silent = true }
+      vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
+    end
+  }
+}
