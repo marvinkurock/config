@@ -98,10 +98,12 @@ lsp.setup_nvim_cmp({
       return vim_item
     end
   },
-  completion = {
-    completeopt = 'menu,menuone,noinsert'
-    -- completeopt = 'menu,menuone,noselect'
-  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip', keyword_length = 3 },
+    { name = 'buffer', keyword_length = 3 },
+    { name = 'path' },
+  }
 })
 
 function format()

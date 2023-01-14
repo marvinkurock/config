@@ -15,12 +15,12 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: haute-cuisine-eks-production
-  currentCluster: arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production
+  currentContext: aks-techex-dev
+  currentCluster: aks-techex-dev
   clusters:
     aks-techex-dev:
       namespace:
-        active: trackmyinvest
+        active: all
         lockFavorites: false
         favorites:
         - all
@@ -75,7 +75,7 @@ k9s:
         - microservices
         - default
       view:
-        active: secret
+        active: pods
       featureGates:
         nodeShell: false
       shellPod:
