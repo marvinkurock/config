@@ -1,5 +1,4 @@
 local lsp = require("lsp-zero")
-local saga = require("lspsaga")
 
 lsp.preset("recommended")
 
