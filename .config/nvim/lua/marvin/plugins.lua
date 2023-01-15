@@ -128,22 +128,21 @@ packer.startup(function(use)
   --   "ray-x/lsp_signature.nvim",
   --   tag = "v0.2.0"
   -- }
-  -- -- use { 'tami5/lspsaga.nvim' }
-  use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-      require('lspsaga').setup({
-        lightbulb = {
-          enable = false,
-          enable_in_insert = false,
-          sign = false,
-          sign_priority = 40,
-          virtual_text = false,
-        },
-      })
-    end
-  })
+  -- use({
+  --   "glepnir/lspsaga.nvim",
+  --   branch = "main",
+  --   config = function()
+  --     require('lspsaga').setup({
+  --       lightbulb = {
+  --         enable = false,
+  --         enable_in_insert = false,
+  --         sign = false,
+  --         sign_priority = 40,
+  --         virtual_text = false,
+  --       },
+  --     })
+  --   end
+  -- })
 
   -- DAP protocol
   use "mfussenegger/nvim-dap"

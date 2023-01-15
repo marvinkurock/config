@@ -13,14 +13,6 @@ lsp.ensure_installed({
 })
 
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
--- local cmp_mappings = lsp.defaults.cmp_mappings({
---   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
---   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
---   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
---   ["<C-Space>"] = cmp.mapping.complete(),
---   ["<Tab>"] = nil
--- })
 local luasnip = require('luasnip')
 local cmp_mappings = cmp.mapping.preset.insert({
   ['<C-j>'] = cmp.mapping(function()
@@ -121,13 +113,19 @@ function on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set('n', '<leader>.', '<cmd>Lspsaga code_action<cr>', opts)
-  vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
-  vim.keymap.set('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
-  vim.keymap.set('n', 'gH', function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
-  vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
+  vim.keymap.set('n', 'gh', function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+  vim.keymap.set('n', '<leader>.', function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set('i', '<C-K>', function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+
+  -- vim.keymap.set('n', '<leader>.', '<cmd>Lspsaga code_action<cr>', opts)
+  -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
+  -- vim.keymap.set('n', 'gH', '<cmd>Lspsaga lsp_finder<CR>', opts)
+  -- vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
+  -- vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
 end
 lsp.on_attach(on_attach)
 
