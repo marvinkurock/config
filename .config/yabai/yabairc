@@ -20,12 +20,14 @@ yabai -m rule --add app="^Archive Utility$" manage=off border=off
 yabai -m rule --add title="^Control Center$" manage=off border=off
 yabai -m rule --add app="^Steam$" manage=off border=off
 yabai -m rule --add app="^PS Remote Play$" manage=off border=off
+yabai -m rule --add app="^Finder$" manage=off border=off
+yabai -m rule --add app="^Preview$" manage=off border=off
 
 # space configs
 yabai -m rule --add app="^Slack$" space=3
 yabai -m rule --add app="^Zeiss Teams$" space=3
-yabai -m rule --add app="^Microsoft Teams$" space=3
-yabai -m rule --add app="^Messages$" space=3
+yabai -m rule --add app="^Microsoft Teams$" space=4
+yabai -m rule --add app="^Messages$" space=4
 yabai -m rule --add app="^Gather$" space=3
 yabai -m rule --add app="^Microsoft Outlook$" space=4
 # yabai -m rule --add app="^Microsoft Edge$" space=2

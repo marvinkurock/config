@@ -65,7 +65,7 @@ require("flutter-tools").setup {
   lsp = {
     on_attach = function ()
       local opts = { noremap = true, silent = true }
-      vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
+      -- vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
     end
   }
 }

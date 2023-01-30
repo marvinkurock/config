@@ -19,6 +19,17 @@ keymap("n", "<leader>vc", ":VimuxInterruptRunner<cr>", opts)
 keymap("n", "<leader>rs", ":call VimuxRunCommand('npm start')<cr>", opts)
 keymap("n", "<leader>rr", ":VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>", opts)
 keymap("n", "<leader>rz", ":VimuxRunLastCommand<cr>:VimuxZoomRunner<cr>", opts)
+function run_file ()
+  local f = vim.bo.filetype
+  if f == 'javascript' or f == 'typescript' then
+    vim.cmd[[VimuxRunCommand('npm start')]]
+  elseif f == 'rust' then
+    vim.cmd[[VimuxRunCommand('cargo run')]]
+  elseif f == 'dart' then
+    vim.cmd[[FlutterDevices]]
+  end
+end
+vim.keymap.set("n", "<leader>R", run_file, opts)
 
 keymap("n", "<leader>dt", ":lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<cr>", opts)
 
@@ -28,7 +39,7 @@ keymap("n", "<leader>xn", "o- [ ] ", opts)
 keymap("n", "<leader>xd", "dd G p <C-o>k", opts) -- cut the line and paste it to the bottom of the file (move todo to done)
 
 keymap("n", "<C-p>", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<C-x>", ":Bdelete<cr>", opts)
+-- keymap("n", "<C-x>", ":Bdelete<cr>", opts)
 keymap("n", "<leader>nh", ":noh<cr>", opts)
 keymap("n", "<leader>nw", ":set wrap!<cr>", opts)
 

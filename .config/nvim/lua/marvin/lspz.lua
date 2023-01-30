@@ -119,7 +119,7 @@ function on_attach(client, bufnr)
   vim.keymap.set('n', '<leader>.', function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set('i', '<C-K>', function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "gr", function() vim.lsp.buf.rename() end, opts)
 
   -- vim.keymap.set('n', '<leader>.', '<cmd>Lspsaga code_action<cr>', opts)
   -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
@@ -140,7 +140,7 @@ require("flutter-tools").setup {
     on_attach = function (client, bufnr)
       on_attach(client, bufnr)
       local opts = { noremap = true, silent = true }
-      vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
+      -- vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
     end
   }
 }

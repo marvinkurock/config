@@ -4,6 +4,9 @@ export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/opt/flutter/bin:$PATH"
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home
 VI_MODE_SET_CURSOR=true
@@ -221,6 +224,17 @@ update()
     git commit -m "update"
   fi
   git push;
+}
+
+padding()
+{
+  VALUE=8
+  if [[ $1 ]]; then VALUE=$1; fi
+  yabai -m config window_gap $VALUE;
+  yabai -m config top_padding    $VALUE;
+  yabai -m config bottom_padding $VALUE;
+  yabai -m config left_padding   $VALUE;
+  yabai -m config right_padding  $VALUE;
 }
 
 
