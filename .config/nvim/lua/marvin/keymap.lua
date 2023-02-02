@@ -59,6 +59,7 @@ keymap("n", "<leader>dr", ":lua dapRunConfigWithArgs()<cr>", opts)
 -- keymap("n", "<leader>dl", ":lua require('dap').run_last()<cr>", opts)
 
 keymap("n", "<C-f>", ":Telescope find_files<cr>", opts)
+keymap("n", "<C-b>", ":Telescope buffers<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
@@ -101,10 +102,10 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 
 -- -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<Tab>", ">>", opts)
-keymap("n", "<S-Tab>", "<<", opts)
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- keymap("n", "<Tab>", ">>", opts)
+-- keymap("n", "<S-Tab>", "<<", opts)
 
 keymap("i", "<S-Tab>", "<C-D>", {})
 
