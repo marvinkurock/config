@@ -434,10 +434,13 @@ tmux_conf_uninstall_plugins_on_reload=true
 # "$@"
 # # /!\ do not remove the previous line
 
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
 setw -g mouse on
 bind ü copy-mode
 bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy" \; send-keys -X clear-selection
 bind-key -T copy-mode-vi Y send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+bind -T copy-mode-vi v send-keys -X begin-selection
 
 bind ä break-pane
 bind ö command-prompt -p "join pane to:" "join-pane -t :'%%'"

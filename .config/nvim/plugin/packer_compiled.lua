@@ -330,6 +330,11 @@ _G.packer_plugins = {
     path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/vim-terraform",
     url = "https://github.com/hashivim/vim-terraform"
   },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
   vimux = {
     loaded = true,
     path = "/Users/marvinkurock/.local/share/nvim/site/pack/packer/start/vimux",
