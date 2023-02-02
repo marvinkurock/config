@@ -15,19 +15,19 @@ lsp.ensure_installed({
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local cmp_mappings = cmp.mapping.preset.insert({
-  ['<C-j>'] = cmp.mapping(function()
-    luasnip.expand_or_jump()
-  end, { "i", "s" }),
-  ['<C-k>'] = cmp.mapping(function()
-    luasnip.jump(-1)
-  end, { "i", "s" }),
-  ['<C-l>'] = cmp.mapping(function(fallback)
-    if luasnip.choice_active() then
-      luasnip.change_choice(1)
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
+  -- ['<C-j>'] = cmp.mapping(function()
+  --   luasnip.expand_or_jump()
+  -- end, { "i", "s" }),
+  -- ['<C-k>'] = cmp.mapping(function()
+  --   luasnip.jump(-1)
+  -- end, { "i", "s" }),
+  -- ['<C-l>'] = cmp.mapping(function(fallback)
+  --   if luasnip.choice_active() then
+  --     luasnip.change_choice(1)
+  --   else
+  --     fallback()
+  --   end
+  -- end, { "i", "s" }),
   ['<C-b>'] = cmp.mapping.scroll_docs(-4),
   ['<C-f>'] = cmp.mapping.scroll_docs(4),
   ['<C-Space>'] = cmp.mapping.complete(),
@@ -68,7 +68,7 @@ lsp.set_preferences({
     hint = '',
     info = '',
   },
-  set_lsp_keymaps = { omit = { '<tab>', '<Tab>' } },
+  set_lsp_keymaps = { omit = { '<tab>', '<Tab>', '<C-k>' } },
 })
 
 
