@@ -19,19 +19,21 @@ keymap("n", "<leader>vc", ":VimuxInterruptRunner<cr>", opts)
 keymap("n", "<leader>rs", ":call VimuxRunCommand('npm start')<cr>", opts)
 keymap("n", "<leader>rr", ":VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>", opts)
 keymap("n", "<leader>rz", ":VimuxRunLastCommand<cr>:VimuxZoomRunner<cr>", opts)
-function run_file ()
+function run_file()
   local f = vim.bo.filetype
   if f == 'javascript' or f == 'typescript' then
-    vim.cmd[[VimuxRunCommand('npm start')]]
+    vim.cmd [[VimuxRunCommand('npm start')]]
   elseif f == 'rust' then
-    vim.cmd[[VimuxRunCommand('cargo run')]]
+    vim.cmd [[VimuxRunCommand('cargo run')]]
   elseif f == 'dart' then
-    vim.cmd[[FlutterDevices]]
+    vim.cmd [[FlutterDevices]]
   end
 end
+
 vim.keymap.set("n", "<leader>R", run_file, opts)
 
-keymap("n", "<leader>dt", ":lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<cr>", opts)
+keymap("n", "<leader>dt", ":lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<cr>",
+  opts)
 
 keymap("n", "<leader>xx", ":s/\\[ \\]/[x]<cr>:noh<cr>", opts)
 keymap("n", "<leader>xu", ":s/\\[x\\]/[ ]<cr>:noh<cr>", opts)
@@ -67,7 +69,7 @@ keymap("n", "<leader>dl", ":Telescope diagnostics<cr>", opts)
 
 keymap("n", "<leader>gh", ":Gitsigns preview_hunk<cr>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
-keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<cr>", opts)
+-- keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<cr>", opts)
 keymap("n", "<leader>gd", ":Gitsigns diffthis<cr>", opts)
 
 keymap("n", "<leader>o", "<C-w>gf", {})
@@ -130,3 +132,24 @@ keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
 keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+
+-- go to the angular template file
+-- toggle between ts and html for angular
+vim.keymap.set("n", "<leader>gt", function()
+  -- local content = vim.api.nvim_buf_get_lines(0, 0, vim.api.nvim_buf_line_count(0), false)
+  -- local str = table.concat(content, "\n")
+  -- local template = str:match("templateUrl: '([%a%p]+)'")
+  -- local folder = vim.fn.expand("%:h")
+  -- vim.cmd("e " .. folder .. '/' .. template)
+  local filename = vim.fn.expand("%")
+  if filename:match("%.html$") then
+    local new_filename = filename:gsub('%.html$', ".ts")
+    print(new_filename)
+    vim.cmd("e " .. new_filename)
+  end
+  if filename:match("%.ts$") then
+    local new_filename = filename:gsub("%.ts$", ".html")
+    print(new_filename)
+    vim.cmd("e " .. new_filename)
+  end
+end, opts)
