@@ -1,4 +1,3 @@
-require('marvin.plugins')         -- plugin installer
 require('marvin.options')         -- key maps
 require('marvin.autocommands')    -- autocommands 
 require('marvin.keymap')          -- global key maps

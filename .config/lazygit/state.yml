@@ -1,17 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
 - /Users/marvinkurock/development/configs
+- /Users/marvinkurock/development/techex/TrackMyInvestments
+- /Users/marvinkurock/development/techex/Infrastructure
 - /Users/marvinkurock/development/tqgg/k8s
 - /Users/marvinkurock/development/tqgg/warehouse-endscan
 - /Users/marvinkurock/development/tqgg/infrastructure
-- /Users/marvinkurock/development/techex/TrackMyInvestments
 - /Users/marvinkurock/development/tqgg/service-payment
 - /Users/marvinkurock/development/techex/tmw/TrackMyWork.Services
 - /Users/marvinkurock/development/tqgg/commercetools-bundles-starter
 - /Users/marvinkurock/development/tqgg/service-customer-loyalty
 - /Users/marvinkurock/development/tqgg/docker-images
 - /Users/marvinkurock/development/jabog/website-github
-- /Users/marvinkurock/development/techex/Infrastructure
 - /Users/marvinkurock/development/tqgg/service-authentication
 startuppopupversion: 5
 customcommandshistory: []
