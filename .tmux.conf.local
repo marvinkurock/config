@@ -434,7 +434,6 @@ tmux_conf_uninstall_plugins_on_reload=true
 # "$@"
 # # /!\ do not remove the previous line
 
-set -g @plugin 'christoomey/vim-tmux-navigator'
 
 setw -g mouse on
 bind ü copy-mode

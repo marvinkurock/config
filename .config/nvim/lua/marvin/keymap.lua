@@ -81,9 +81,8 @@ keymap("v", "<leader>\\", "gc", {})
 
 keymap("n", "<leader>u", ":UndotreeToggle<cr>", opts)
 keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {}) -- replace word under cursor
-keymap("n", "<leader>l", ":nohl<cr>", opts)
-keymap("n", "<leader>j", ":cnext<cr>", opts)
-keymap("n", "<leader>k", ":cprev<cr>", opts)
+keymap("n", "<C-j>", ":cnext<cr>", opts)
+keymap("n", "<C-k>", ":cprev<cr>", opts)
 --
 -- -- Normal --
 -- -- Better window navigation
