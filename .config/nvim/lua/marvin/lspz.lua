@@ -5,7 +5,6 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   -- 'eslint',
-  'sumneko_lua',
   'rust_analyzer',
   'bashls',
   'yamlls',
@@ -83,14 +82,14 @@ local source_mapping = {
 }
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
-  formatting = {
-    format = function(entry, vim_item)
-      vim_item.kind = lspkind.presets.default[vim_item.kind]
-      local menu = source_mapping[entry.source.name]
-      vim_item.menu = menu
-      return vim_item
-    end
-  },
+  -- formatting = {
+  --   format = function(entry, vim_item)
+  --     vim_item.kind = lspkind.presets.default[vim_item.kind]
+  --     local menu = source_mapping[entry.source.name]
+  --     vim_item.menu = menu
+  --     return vim_item
+  --   end
+  -- },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip', keyword_length = 3 },
@@ -117,17 +116,18 @@ function on_attach(client, bufnr)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
   vim.keymap.set('n', 'gh', function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 
-  vim.keymap.set('n', '<leader>.', function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set('i', '<C-K>', function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "gr", function() vim.lsp.buf.rename() end, opts)
+  -- vim.keymap.set('n', '<leader>.', function() vim.lsp.buf.code_action() end, opts)
+  -- vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+  -- vim.keymap.set('i', '<C-K>', function() vim.lsp.buf.hover() end, opts)
+  -- vim.keymap.set("n", "gr", function() vim.lsp.buf.rename() end, opts)
 
-  -- vim.keymap.set('n', '<leader>.', '<cmd>Lspsaga code_action<cr>', opts)
-  -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
-  -- vim.keymap.set('n', 'gH', '<cmd>Lspsaga lsp_finder<CR>', opts)
-  -- vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
-  -- vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
+  vim.keymap.set('n', '<leader>.', '<cmd>Lspsaga code_action<cr>', opts)
+  vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
+  vim.keymap.set('n', 'gH', '<cmd>Lspsaga lsp_finder<CR>', opts)
+  vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
+  vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
 end
 lsp.on_attach(on_attach)
 

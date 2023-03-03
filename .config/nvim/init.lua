@@ -109,22 +109,21 @@ local plugins = {
   --   "ray-x/lsp_signature.nvim",
   --   tag = "v0.2.0"
   -- }
-  -- use({
-  --   "glepnir/lspsaga.nvim",
-  --   branch = "main",
-  --   config = function()
-  --     require('lspsaga').setup({
-  --       lightbulb = {
-  --         enable = false,
-  --         enable_in_insert = false,
-  --         sign = false,
-  --         sign_priority = 40,
-  --         virtual_text = false,
-  --       },
-  --     })
-  --   end
-  -- })
-
+  {
+    "glepnir/lspsaga.nvim",
+    config = function()
+      require('lspsaga').setup({
+        lightbulb = {
+          enable = false,
+          enable_in_insert = false,
+          sign = false,
+          sign_priority = 40,
+          virtual_text = false,
+        },
+      })
+    end
+  },
+  --
   -- DAP protocol
   "mfussenegger/nvim-dap",
   "leoluz/nvim-dap-go",
