@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 local plugins = {
-  "wbthomason/packer.nvim", -- Have packer manage itself,
+  "wbthomason/packer.nvim", -- needed?
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim,
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins,
   "kyazdani42/nvim-web-devicons",
