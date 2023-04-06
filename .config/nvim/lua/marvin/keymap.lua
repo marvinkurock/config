@@ -71,6 +71,7 @@ keymap("n", "<leader>gh", ":Gitsigns preview_hunk<cr>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 -- keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<cr>", opts)
 keymap("n", "<leader>gd", ":Gitsigns diffthis<cr>", opts)
+keymap("n", "<leader>gs", ":Git<cr>", opts)
 
 keymap("n", "<leader>o", "<C-w>gf", {})
 keymap("n", "<leader>#", "gcc", {})

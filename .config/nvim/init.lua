@@ -109,6 +109,7 @@ local plugins = {
   --   "ray-x/lsp_signature.nvim",
   --   tag = "v0.2.0"
   -- }
+  "ray-x/lsp_signature.nvim",
   {
     "glepnir/lspsaga.nvim",
     config = function()

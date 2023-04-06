@@ -238,7 +238,7 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" #S "
 # tmux_conf_theme_status_right=" #(kubectl config current-context) | #{pairing}#{synchronized}#{battery_status}#{?battery_percentage,#{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
-tmux_conf_theme_status_right="#[fg=blue]\u2388 #[fg=white]#(kubectl config current-context) | #{pairing}#{synchronized}#{battery_status}#{?battery_percentage,#{battery_percentage},} | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right="#[fg=blue]\u2388 #[fg=white]#(kubectl config current-context) | #{pairing}#{synchronized}#{battery_status}#{?battery_percentage,#{battery_percentage},} | #{username}#{root} | #{hostname} | %R "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -316,7 +316,7 @@ tmux_conf_battery_vbar_palette="gradient"
 # tmux_conf_battery_status_charging="↑"       # U+2191
 # tmux_conf_battery_status_discharging="↓"    # U+2193
 tmux_conf_battery_status_charging="⚡️"       # U+2191
-tmux_conf_battery_status_discharging=" "    # U+2193
+tmux_conf_battery_status_discharging=" "    # U+2193
 #tmux_conf_battery_status_charging="🔌"     # U+1F50C
 #tmux_conf_battery_status_discharging="🔋"  # U+1F50B
 
@@ -449,6 +449,8 @@ set -g prefix C-z
 set -gu prefix2
 unbind C-b
 unbind C-a
+unbind C-l
+
 bind C-y send-prefix
 bind C-z send-prefix
 
@@ -473,7 +475,6 @@ bind-key -n ’ select-window -t 1
 bind-key -n ² select-window -t 2
 bind-key -n ³ select-window -t 3
 bind-key -n ¢ select-window -t 4
-bind-key -n ´ select-pane -t :.+
 
 set -g allow-rename off
 set -g history-limit 10000
