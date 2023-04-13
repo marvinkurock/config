@@ -1,6 +1,36 @@
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
+lsp.preset({
+  float_border = 'rounded',
+  call_servers = 'local',
+  configure_diagnostics = true,
+  setup_servers_on_start = true,
+  -- set_lsp_keymaps = false,
+  sign_icons = {
+    error = '',
+    warn = '',
+    hint = '',
+    info = '',
+  },
+  set_lsp_keymaps = { omit = { '<tab>', '<Tab>', '<C-k>' } },
+  manage_nvim_cmp = {
+    set_sources = 'recommended',
+    set_basic_mappings = true,
+    set_extra_mappings = false,
+    use_luasnip = true,
+    set_format = true,
+    documentation_window = true,
+  },
+})
+
+
+lsp.configure("yamlls", {
+  settings = {
+    yaml = {
+      keyOrdering = false
+    }
+  }
+})
 
 lsp.ensure_installed({
   'tsserver',
@@ -60,15 +90,15 @@ local cmp_mappings = cmp.mapping.preset.insert({
   end, { "i", "s" }),
 })
 
-lsp.set_preferences({
-  sign_icons = {
-    error = '',
-    warn = '',
-    hint = '',
-    info = '',
-  },
-  set_lsp_keymaps = { omit = { '<tab>', '<Tab>', '<C-k>' } },
-})
+-- lsp.set_preferences({
+--   sign_icons = {
+--     error = '',
+--     warn = '',
+--     hint = '',
+--     info = '',
+--   },
+--   set_lsp_keymaps = { omit = { '<tab>', '<Tab>', '<C-k>' } },
+-- })
 
 
 
@@ -98,13 +128,6 @@ lsp.setup_nvim_cmp({
   }
 })
 
--- require("lspconfig").yamlls.setup({
---   settings = {
---     yaml = {
---       keyOrdering = false
---     }
---   }
--- })
 
 function format()
   vim.lsp.buf.format({
