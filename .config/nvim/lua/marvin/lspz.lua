@@ -5,13 +5,6 @@ lsp.preset({
   call_servers = 'local',
   configure_diagnostics = true,
   setup_servers_on_start = true,
-  -- set_lsp_keymaps = false,
-  sign_icons = {
-    error = '',
-    warn = '',
-    hint = '',
-    info = '',
-  },
   set_lsp_keymaps = { omit = { '<tab>', '<Tab>', '<C-k>' } },
   manage_nvim_cmp = {
     set_sources = 'recommended',
@@ -23,13 +16,11 @@ lsp.preset({
   },
 })
 
-
-lsp.configure("yamlls", {
-  settings = {
-    yaml = {
-      keyOrdering = false
-    }
-  }
+lsp.set_sign_icons({
+  error = '',
+  warn = '',
+  hint = '',
+  info = '',
 })
 
 lsp.ensure_installed({
@@ -90,18 +81,6 @@ local cmp_mappings = cmp.mapping.preset.insert({
   end, { "i", "s" }),
 })
 
--- lsp.set_preferences({
---   sign_icons = {
---     error = '',
---     warn = '',
---     hint = '',
---     info = '',
---   },
---   set_lsp_keymaps = { omit = { '<tab>', '<Tab>', '<C-k>' } },
--- })
-
-
-
 local lspkind = require('lspkind')
 local source_mapping = {
   buffer = "[Buffer]",
@@ -123,7 +102,7 @@ lsp.setup_nvim_cmp({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip', keyword_length = 3 },
-    { name = 'buffer', keyword_length = 3 },
+    { name = 'buffer',  keyword_length = 3 },
     { name = 'path' },
   }
 })
@@ -160,7 +139,18 @@ function on_attach(client, bufnr)
   vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
   vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
 end
+
 lsp.on_attach(on_attach)
+
+local lspconfig = require('lspconfig')
+
+lspconfig.yamlls.setup({
+  settings = {
+    yaml = {
+      keyOrdering = false
+    }
+  }
+})
 
 lsp.setup()
 
@@ -170,7 +160,7 @@ require("flutter-tools").setup {
     open_cmd = "10new", -- command to use to open the log buffer
   },
   lsp = {
-    on_attach = function (client, bufnr)
+    on_attach = function(client, bufnr)
       on_attach(client, bufnr)
       local opts = { noremap = true, silent = true }
       -- vim.api.nvim_set_keymap('n', '<leader>R', '<cmd>FlutterRestart<CR>', opts)
