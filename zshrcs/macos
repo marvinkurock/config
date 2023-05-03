@@ -8,6 +8,25 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+cr()
+{
+  gcc -o ${1/.c/} $1 && ./${1/.c/}
+}
+alias switch_branch="git branch --remote | fzf | xargs git switch -c"
+gozeiss()
+{
+  export AZURE_CONFIG_DIR=/Users/marvinkurock/.zeiss
+  export PATH=/opt/node/bin:$PATH
+}
+
+go-project()
+{
+  f=$(find ~/development -maxdepth 2 -type d | fzf)
+  cd $f
+}
+zle     -N go-project
+bindkey ^B go-project
+
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home
 VI_MODE_SET_CURSOR=true
 # alias tm="tmux new-session -A -s ''"

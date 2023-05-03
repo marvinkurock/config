@@ -34,6 +34,7 @@ lsp.ensure_installed({
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+require("luasnip.loaders.from_vscode").lazy_load()
 local cmp_mappings = cmp.mapping.preset.insert({
   -- ['<C-j>'] = cmp.mapping(function()
   --   luasnip.expand_or_jump()
@@ -138,6 +139,12 @@ function on_attach(client, bufnr)
   vim.keymap.set('n', 'gH', '<cmd>Lspsaga lsp_finder<CR>', opts)
   vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
   vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
+  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+    vim.diagnostic.disable(bufnr)
+    vim.defer_fn(function()
+      vim.diagnostic.reset(nil, bufnr)
+    end, 1000)
+  end
 end
 
 lsp.on_attach(on_attach)

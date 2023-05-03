@@ -1,17 +1,23 @@
+local function my_on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+  vim.keymap.set('n', '<C-e>', '', { buffer = bufnr })
+  vim.keymap.del('n', '<C-e>', { buffer = bufnr })
+end
+
 require('nvim-tree').setup {
   view = {
     adaptive_size= true,
-    mappings = {
-      list = {
-        { key = {"<C-g>"},    action = "cd" },
-      }
-    }
   },
   git = {
     enable = true,
     ignore = false
   },
-  remove_keymaps = { "<C-e>" },
   filters = {
     dotfiles = false,
     custom = {
@@ -24,7 +30,8 @@ require('nvim-tree').setup {
     open_file = {
       quit_on_open = true,
     }
-  }
+  },
+  on_attach = my_on_attach
 }
 local function open_nvim_tree(data)
 
