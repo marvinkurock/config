@@ -87,7 +87,7 @@ packer.startup(function(use)
   --   "neovim/nvim-lspconfig",
   -- }
   use 'github/copilot.vim'
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-fugitive'
   use 'junegunn/gv.vim'
   use 'akinsho/flutter-tools.nvim'
   use "jose-elias-alvarez/null-ls.nvim"

@@ -68,7 +68,8 @@ local plugins = {
   --   "neovim/nvim-lspconfig",
   -- }
   'github/copilot.vim',
-  'tpope/vim-fugitive',
+  -- 'tpope/vim-fugitive',
+  { 'NeogitOrg/neogit', dependencies = 'nvim-lua/plenary.nvim' },
   'junegunn/gv.vim',
   'akinsho/flutter-tools.nvim',
   "jose-elias-alvarez/null-ls.nvim",
