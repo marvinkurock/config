@@ -136,3 +136,4 @@ local plugins = {
 }
 require("lazy").setup(plugins, opts)
 require("marvin")
+
