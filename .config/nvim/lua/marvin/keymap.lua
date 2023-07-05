@@ -66,6 +66,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>dl", ":Telescope diagnostics<cr>", opts)
+keymap("n", "<leader>gB", ":Telescope git_branches<cr>", opts)
 
 keymap("n", "<leader>gh", ":Gitsigns preview_hunk<cr>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
