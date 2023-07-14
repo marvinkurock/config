@@ -71,9 +71,22 @@ keymap("n", "<leader>gB", ":Telescope git_branches<cr>", opts)
 keymap("n", "<leader>gh", ":Gitsigns preview_hunk<cr>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 -- keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<cr>", opts)
-keymap("n", "<leader>gd", ":DiffviewOpen<cr>", opts)
+
+local dv_open = false
+local function toggle_dv()
+  if dv_open then
+    vim.cmd [[DiffviewClose]]
+  else
+    vim.cmd [[DiffviewOpen]]
+  end
+  dv_open = not dv_open
+end
+
+vim.keymap.set("n", "<leader>gd", toggle_dv, opts)
 
 keymap("n", "<leader>gg", ":Neogit<cr>", opts)
+keymap("n", "<leader>gp", ":!git pull<cr>", opts)
+keymap("n", "<leader>gP", ":!git push<cr>", opts)
 
 keymap("n", "<leader>gf", ":diffget //2<cr>", opts)
 keymap("n", "<leader>gj", ":diffget //3<cr>", opts)
@@ -83,6 +96,7 @@ keymap("n", "<leader>#", "gcc", {})
 keymap("n", "<leader>\\", "gcc", {})
 keymap("n", "<leader>Q", ":Bdelete!<cr>", {})
 keymap("n", "<leader>qq", ":qa<cr>", {})
+keymap("n", "<leader>qd", ":DiffviewClose<cr>", {})
 keymap("n", "<leader>qa", ":%bd|e#|bd#<cr>", {})
 keymap("v", "<leader>#", "gc", {})
 keymap("v", "<leader>\\", "gc", {})
