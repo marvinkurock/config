@@ -85,8 +85,8 @@ end
 vim.keymap.set("n", "<leader>gd", toggle_dv, opts)
 
 keymap("n", "<leader>gg", ":G<cr>", opts)
-keymap("n", "<leader>gp", ":!G pull<cr>", opts)
-keymap("n", "<leader>gP", ":!G push<cr>", opts)
+keymap("n", "<leader>gl", ":G pull<cr>", opts)
+keymap("n", "<leader>gp", ":G push<cr>", opts)
 
 keymap("n", "<leader>gf", ":diffget //2<cr>", opts)
 keymap("n", "<leader>gj", ":diffget //3<cr>", opts)

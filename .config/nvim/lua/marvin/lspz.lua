@@ -136,7 +136,7 @@ function on_attach(client, bufnr)
 
   vim.keymap.set('n', '<leader>.', '<cmd>Lspsaga code_action<cr>', opts)
   vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
-  vim.keymap.set('n', 'gH', '<cmd>Lspsaga lsp_finder<CR>', opts)
+  vim.keymap.set('n', 'gH', '<cmd>Lspsaga finder<CR>', opts)
   vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
   vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
   -- if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
