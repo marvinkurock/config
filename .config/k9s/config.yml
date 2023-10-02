@@ -16,12 +16,12 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: haute-cuisine-eks-testing
-  currentCluster: arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing
+  currentContext: haute-cuisine-eks-production
+  currentCluster: arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production
   clusters:
     aks-techex-dev:
       namespace:
-        active: trackmyinvest
+        active: all
         lockFavorites: false
         favorites:
         - all
@@ -43,12 +43,12 @@ k9s:
       portForwardAddress: localhost
     aks-techex-prod:
       namespace:
-        active: ingress-nginx
+        active: trackmywork
         lockFavorites: false
         favorites:
-        - ingress-nginx
-        - all
         - trackmywork
+        - argocd
+        - all
         - default
       view:
         active: pod
@@ -66,45 +66,18 @@ k9s:
       portForwardAddress: localhost
     arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production:
       namespace:
-        active: all
+        active: microservices
         lockFavorites: false
         favorites:
-        - keda
-        - commercetools-extensions
-        - all
-        - external-secrets
-        - datadog
+        - default
+        - shopify-apps
         - traefikee
         - microservices
-        - default
-      view:
-        active: css
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
-      portForwardAddress: localhost
-    arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing:
-      namespace:
-        active: warehouse
-        lockFavorites: false
-        favorites:
-        - warehouse
-        - external-secrets
+        - warehouse-kaki
+        - warehouse-rgb
+        - flux-system
         - keda
         - commercetools-extensions
-        - datadog
-        - traefikee
-        - microservices
-        - all
-        - default
       view:
         active: pod
       featureGates:
@@ -119,11 +92,41 @@ k9s:
           memory: 100Mi
         labels: {}
       portForwardAddress: localhost
-    haute-cuisine-eks-staging:
+    arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing:
       namespace:
-        active: external-secrets
+        active: default
         lockFavorites: false
         favorites:
+        - shopify-apps
+        - chatbot-core
+        - microservices
+        - traefikee
+        - flux-system
+        - all
+        - default
+        - aws-cloudwatch-logs
+        - warehouse
+      view:
+        active: node
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    haute-cuisine-eks-staging:
+      namespace:
+        active: shopify-apps
+        lockFavorites: false
+        favorites:
+        - shopify-apps
+        - flux-system
         - external-secrets
         - keda
         - kube-system
@@ -131,7 +134,6 @@ k9s:
         - datadog
         - all
         - microservices
-        - default
       view:
         active: pod
       featureGates:

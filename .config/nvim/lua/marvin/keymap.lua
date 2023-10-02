@@ -103,6 +103,8 @@ keymap("v", "<leader>\\", "gc", {})
 
 keymap("n", "<leader>u", ":UndotreeToggle<cr>", opts)
 keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {}) -- replace word under cursor
+keymap("n", "<leader>st", ":%s/\\([0-9]\\{2\\}\\)\\([0-9]\\{2\\}\\)/\\1:\\2/g", {}) -- replace word under cursor
+
 keymap("n", "<C-j>", ":cnext<cr>", opts)
 keymap("n", "<C-k>", ":cprev<cr>", opts)
 --
