@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/home/soul/go/bin:/usr/local/go/bin:$PATH"
+export PATH="/home/marvin/go/bin:/home/marvin/.cargo/bin:/usr/local/go/bin:$PATH"
 export EDITOR=nvim
 tm ()
 {
