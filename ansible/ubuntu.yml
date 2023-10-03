@@ -37,7 +37,14 @@
     - name: Install alacritty
       shell: >
         cargo install alacritty
-        creates=~/.cargo/bin/alacritty
+      args:
+        creates: ~/.cargo/bin/alacritty
+
+    - name: Install lsd
+      shell: >
+        cargo install lsd
+      args:
+        creates: ~/.cargo/bin/lsd
 
     - name: extract Nerd Font
       become: true
@@ -91,6 +98,24 @@
         name: marvin
         shell: /bin/zsh
 
+    - name: clone ohmytmux
+      become: true
+      ansible.builtin.git:
+        repo: https://github.com/gpakosz/.tmux.git
+        dest: /opt/.tmux
+    - name: link tmux.config
+      ansible.builtin.file:
+        src: /opt/.tmux/.tmux.conf
+        dest: ~/.tmux.conf
+        state: link
+        force: true
+    - name: link tmux.config
+      ansible.builtin.file:
+        src: '{{ playbook_dir }}/../.tmux.conf.local'
+        dest: ~/.tmux.conf.local
+        state: link
+        force: true
+
 
 
 - name: Install Neovim
@@ -142,5 +167,61 @@
         /bin/bash -c "source ~/.nvm/nvm.sh && nvm install node && nvm alias default node"
         creates=/home/{{ ansible_user_id }}/.nvm/alias
 
+- name: setup i3
+  hosts: localhost
+  tasks:
+    - name: Install packages
+      become: true
+      ansible.builtin.apt:
+        name:
+          - i3
+          - rofi
+        state: latest
+    - name: Link Config
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/i3'
+        dest: ~/.config/i3
+        owner: marvin
+        state: link
+    - name: Link GTK3
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-3.0'
+        dest: ~/.config/gtk-3.0
+        owner: marvin
+        state: link
+        force: true
+    - name: Link GTK4
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-4.0'
+        dest: ~/.config/gtk-4.0
+        owner: marvin
+        state: link
+        force: true
+    - name: Install Rofi
+      shell: |
+        mkdir -p ~/.local/share/rofi/themes
+        mkdir -p ~/.config/rofi/
+        curl 'https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.local/share/rofi/themes/catppuccin-mocha.rasi' -o ~/.local/share/rofi/themes/catppuccin-mocha.rasi
+        curl https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.config/rofi/config.rasi -o ~/.config/rofi/config.rasi 
+      args:
+        creates: ~/.config/rofi
 
+- name: Install software
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Setup Brave repo
+      shell: |
+        curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list
+      args:
+        creates: /etc/apt/sources.list.d/brave-browser-release.list
+    - name: Install brave
+      ansible.builtin.apt:
+        name: brave-browser
+        state: latest
+        update_cache: true
 

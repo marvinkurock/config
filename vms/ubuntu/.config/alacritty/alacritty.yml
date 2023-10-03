@@ -760,6 +760,7 @@ key_bindings:
   - { key: Q, mods: Control, chars: "\x11"}
   # - { key: 33, mods: Control, chars: "\x1d"}
   - { key: C, mods: Alt,        chars: "\x1bc" }
+  - { key: V,   mods: Super, action: Paste }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
