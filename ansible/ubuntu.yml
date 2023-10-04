@@ -115,6 +115,12 @@
         dest: ~/.tmux.conf.local
         state: link
         force: true
+    - name: link k9s skin
+      ansible.builtin.file:
+        src: '{{ playbook_dir }}/../.config/k9s/skin.yml'
+        dest: ~/.config/k9s/skin.yml
+        state: link
+        force: true
 
 
 
@@ -175,6 +181,9 @@
       ansible.builtin.apt:
         name:
           - i3
+          - feh
+          - picom
+          - dunst
           - rofi
         state: latest
     - name: Link Config
@@ -182,6 +191,13 @@
       ansible.builtin.file:
         src: '{{playbook_dir}}/../vms/ubuntu/.config/i3'
         dest: ~/.config/i3
+        owner: marvin
+        state: link
+    - name: Link i3Status Config
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/i3status'
+        dest: ~/.config/i3status
         owner: marvin
         state: link
     - name: Link GTK3
@@ -224,4 +240,35 @@
         name: brave-browser
         state: latest
         update_cache: true
+    - name: Install tools via apt
+      ansible.builtin.apt:
+        name:
+          - jq
+          - awscli
+        state: latest
 
+- name: Install golang and tools
+  hosts: localhost
+  tasks:
+    - name: Download golang
+      become: true
+      ansible.builtin.unarchive:
+        src: https://go.dev/dl/go1.21.1.linux-arm64.tar.gz
+        dest: /usr/local/
+        remote_src: yes
+        creates: /usr/local/go/bin/go
+    - name: install lazygit
+      ansible.builtin.command:
+        cmd: go install github.com/jesseduffield/lazygit@latest
+        creates: ~/go/bin/lazygit
+    - name: install k9s
+      ansible.builtin.command:
+        cmd: go install github.com/derailed/k9s@latest
+        creates: ~/go/bin/k9s
+    - name: Download kubectl
+      become: true
+      ansible.builtin.shell:
+        cmd: |
+          curl -Lo /usr/local/bin/kubectl https://dl.k8s.io/release/$(curl -LS https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl
+          chmod 755 /usr/local/bin/kubectl
+        creates: /usr/local/bin/kubectl
