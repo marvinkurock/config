@@ -3,11 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/home/soul/go/bin:/usr/local/go/bin:$PATH"
+export PATH="/home/marvin/go/bin:/home/marvin/.cargo/bin:/usr/local/go/bin:$PATH"
 export EDITOR=nvim
 tm ()
 {
-  name=${1:-}
+  name=${1:-}
   tmux new-session -A -s $name
 }
 
@@ -80,7 +80,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git aws vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 
 source $ZSH/oh-my-zsh.sh

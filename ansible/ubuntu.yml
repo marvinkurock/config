@@ -1,0 +1,274 @@
+---
+- name: Install and Setup Alacritty
+  hosts: localhost
+  tasks:
+    - name: check if cargo is installed
+      shell: command -v cargo
+      register: cargo_exists
+      ignore_errors: yes
+    - name: Download Installer
+      when: cargo_exists is failed
+      get_url:
+        url: https://sh.rustup.rs
+        dest: /tmp/sh.rustup.rs
+        mode: '0755'
+        force: 'yes'
+      tags:
+        - rust
+    - name: install rust/cargo
+      when: cargo_exists is failed
+      shell: /tmp/sh.rustup.rs -y
+      tags:
+        - rust
+
+    - name: Install Dependencies
+      become: true
+      ansible.builtin.apt:
+        name: 
+          - cmake
+          - pkg-config
+          - libfreetype6-dev
+          - libfontconfig1-dev
+          - libxcb-xfixes0-dev
+          - libxkbcommon-dev
+          - python3
+        state: latest
+
+    - name: Install alacritty
+      shell: >
+        cargo install alacritty
+      args:
+        creates: ~/.cargo/bin/alacritty
+
+    - name: Install lsd
+      shell: >
+        cargo install lsd
+      args:
+        creates: ~/.cargo/bin/lsd
+
+    - name: extract Nerd Font
+      become: true
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
+        dest: /usr/share/fonts/
+        remote_src: yes
+    - name: Update Font Cache
+      become: true
+      shell: >
+        fc-cache -fv
+
+    - name: Link Config
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/alacritty'
+        dest: ~/.config/alacritty
+        owner: marvin
+        state: link
+
+    - name: Install shell
+      become: true
+      ansible.builtin.apt:
+        name:
+          - zsh
+          - tmux
+        state: latest
+
+    - name: check ohmyzsh
+      stat:
+        path: ~/.oh-my-zsh/oh-my-zsh.sh
+      register: stat_ohmyzsh
+
+    - name: Install ohmyzsh
+      when: not stat_ohmyzsh.stat.exists
+      shell: |
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+    - name: Link zshrc
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.zshrc'
+        dest: ~/.zshrc
+        owner: marvin
+        state: link
+        force: true
+    - name: change shell
+      become: true
+      ansible.builtin.user:
+        name: marvin
+        shell: /bin/zsh
+
+    - name: clone ohmytmux
+      become: true
+      ansible.builtin.git:
+        repo: https://github.com/gpakosz/.tmux.git
+        dest: /opt/.tmux
+    - name: link tmux.config
+      ansible.builtin.file:
+        src: /opt/.tmux/.tmux.conf
+        dest: ~/.tmux.conf
+        state: link
+        force: true
+    - name: link tmux.config
+      ansible.builtin.file:
+        src: '{{ playbook_dir }}/../.tmux.conf.local'
+        dest: ~/.tmux.conf.local
+        state: link
+        force: true
+    - name: link k9s skin
+      ansible.builtin.file:
+        src: '{{ playbook_dir }}/../.config/k9s/skin.yml'
+        dest: ~/.config/k9s/skin.yml
+        state: link
+        force: true
+
+
+
+- name: Install Neovim
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install Dependencies
+      ansible.builtin.apt:
+        name: 
+          - cmake
+          - ninja-build 
+          - gettext 
+          - unzip 
+          - curl
+        state: latest
+    - name: clone repo
+      ansible.builtin.git:
+        repo: https://github.com/neovim/neovim.git
+        dest: /opt/neovim
+        update: no
+        version: release-0.9
+    - name: build neovim
+      community.general.make:
+        chdir: /opt/neovim
+        target: all
+        params:
+          CMAKE_BUILD_TYPE: RelWithDebInfo
+    - name: install neovim
+      community.general.make:
+        chdir: /opt/neovim
+        target: install
+    - name: Link Config
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../.config/nvim'
+        dest: ~/.config/nvim
+        owner: marvin
+        state: link
+
+- name: Install Node
+  hosts: localhost
+  tasks:
+    - name: Install nvm
+      shell: >
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+        creates=/home/{{ ansible_user_id }}/.nvm/.nvm.sh
+    - name: Install node and set version
+      shell: >
+        /bin/bash -c "source ~/.nvm/nvm.sh && nvm install node && nvm alias default node"
+        creates=/home/{{ ansible_user_id }}/.nvm/alias
+
+- name: setup i3
+  hosts: localhost
+  tasks:
+    - name: Install packages
+      become: true
+      ansible.builtin.apt:
+        name:
+          - i3
+          - feh
+          - picom
+          - dunst
+          - rofi
+        state: latest
+    - name: Link Config
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/i3'
+        dest: ~/.config/i3
+        owner: marvin
+        state: link
+    - name: Link i3Status Config
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/i3status'
+        dest: ~/.config/i3status
+        owner: marvin
+        state: link
+    - name: Link GTK3
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-3.0'
+        dest: ~/.config/gtk-3.0
+        owner: marvin
+        state: link
+        force: true
+    - name: Link GTK4
+      become: false
+      ansible.builtin.file:
+        src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-4.0'
+        dest: ~/.config/gtk-4.0
+        owner: marvin
+        state: link
+        force: true
+    - name: Install Rofi
+      shell: |
+        mkdir -p ~/.local/share/rofi/themes
+        mkdir -p ~/.config/rofi/
+        curl 'https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.local/share/rofi/themes/catppuccin-mocha.rasi' -o ~/.local/share/rofi/themes/catppuccin-mocha.rasi
+        curl https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.config/rofi/config.rasi -o ~/.config/rofi/config.rasi 
+      args:
+        creates: ~/.config/rofi
+
+- name: Install software
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Setup Brave repo
+      shell: |
+        curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list
+      args:
+        creates: /etc/apt/sources.list.d/brave-browser-release.list
+    - name: Install brave
+      ansible.builtin.apt:
+        name: brave-browser
+        state: latest
+        update_cache: true
+    - name: Install tools via apt
+      ansible.builtin.apt:
+        name:
+          - jq
+          - awscli
+        state: latest
+
+- name: Install golang and tools
+  hosts: localhost
+  tasks:
+    - name: Download golang
+      become: true
+      ansible.builtin.unarchive:
+        src: https://go.dev/dl/go1.21.1.linux-arm64.tar.gz
+        dest: /usr/local/
+        remote_src: yes
+        creates: /usr/local/go/bin/go
+    - name: install lazygit
+      ansible.builtin.command:
+        cmd: go install github.com/jesseduffield/lazygit@latest
+        creates: ~/go/bin/lazygit
+    - name: install k9s
+      ansible.builtin.command:
+        cmd: go install github.com/derailed/k9s@latest
+        creates: ~/go/bin/k9s
+    - name: Download kubectl
+      become: true
+      ansible.builtin.shell:
+        cmd: |
+          curl -Lo /usr/local/bin/kubectl https://dl.k8s.io/release/$(curl -LS https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl
+          chmod 755 /usr/local/bin/kubectl
+        creates: /usr/local/bin/kubectl
