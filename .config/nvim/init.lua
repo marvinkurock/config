@@ -1,3 +1,7 @@
+-- --Remap space as leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- require('marvin')
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -12,6 +16,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 local plugins = {
+  { import = "marvin.plugins" },
   "wbthomason/packer.nvim", -- needed?
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim,
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins,
@@ -72,7 +77,6 @@ local plugins = {
   -- { 'NeogitOrg/neogit', dependencies = 'nvim-lua/plenary.nvim' },
   'junegunn/gv.vim',
   'akinsho/flutter-tools.nvim',
-  "jose-elias-alvarez/null-ls.nvim",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
 
   {
@@ -136,4 +140,3 @@ local plugins = {
 }
 require("lazy").setup(plugins, opts)
 require("marvin")
-

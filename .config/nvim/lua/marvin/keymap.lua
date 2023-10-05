@@ -2,10 +2,7 @@ local opts = { noremap = true, silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 --
--- --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 keymap("n", "ü", "{", opts)
 keymap("n", "+", "}", opts)
@@ -103,7 +100,7 @@ keymap("v", "<leader>\\", "gc", {})
 
 keymap("n", "<leader>u", ":UndotreeToggle<cr>", opts)
 keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {}) -- replace word under cursor
-keymap("n", "<leader>st", ":%s/\\([0-9]\\{2\\}\\)\\([0-9]\\{2\\}\\)/\\1:\\2/g", {}) -- replace word under cursor
+keymap("n", "<leader>st", ":%s/\\([0-9]\\{2\\}\\)\\([0-9]\\{2\\}\\)/\\1:\\2/g", {})  -- replace word under cursor
 
 keymap("n", "<C-j>", ":cnext<cr>", opts)
 keymap("n", "<C-k>", ":cprev<cr>", opts)

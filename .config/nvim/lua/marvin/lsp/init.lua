@@ -1,4 +1,3 @@
-require('marvin.lsp.null-ls')
 require('marvin.lsp.signs')
 require('marvin.lsp.cmp')
 local cfg = require('marvin.lsp.config')

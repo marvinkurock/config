@@ -119,7 +119,7 @@ end
 
 function on_attach(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
-  vim.keymap.set("n", "<leader>cf", format, opts)
+  -- vim.keymap.set("n", "<leader>cf", format, opts)
   -- vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
