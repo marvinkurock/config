@@ -1,0 +1,132 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+[Backslash]",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "tab",
+    "command": "tab",
+    "when": "editorTextFocus && !editorTabMovesFocus && !github.copilot.panelVisible"
+  },
+  {
+    "key": "shift+tab",
+    "command": "outdent",
+    "when": "editorTextFocus && !editorTabMovesFocus"
+  },
+  // Terminal mappings
+  {
+    "key": "ctrl+z t",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+z c",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+z shift+'",
+    "command": "workbench.action.terminal.splitInActiveWorkspace"
+  },
+  {
+    "key": "ctrl+z k",
+    "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "ctrl+z j",
+    "command": "workbench.action.focusPanel"
+  },
+  {
+    "key": "ctrl-s",
+    "command": "workbench.action.files.save"
+  },
+  // File tree
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "list.focusPageDown",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "list.focusPageUp",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.closeSidebar",
+    "when": "explorerViewletFocus || searchViewletFocus || activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "tab",
+    "command": "list.toggleExpand",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "runCommands",
+    "when": "filesExplorerFocus",
+    "args": {
+      "commands": [
+        "filesExplorer.openFilePreserveFocus",
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.closeSidebar"
+      ]
+    }
+  },
+  // Welcome screen
+  {
+    "key": "ctrl+p",
+    "command": "workbench.explorer.fileView.focus",
+    "when": "!editorIsOpen && !filesExplorerFocus"
+  },
+  {
+    "key": "tab",
+    "command": "editor.action.inlineSuggest.commit",
+    "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
+  },
+  {
+    "key": "ctrl+z z",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleMaximizedPanel",
+        "workbench.action.focusPanel"
+      ]
+    }
+  },
+  {
+    "key": "cmd+k cmd+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  }
+]

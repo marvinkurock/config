@@ -5,6 +5,7 @@
 !**/.config/skhd
 !**/.config/alacritty
 !**/.config/i3
+!**/.config/Code
 !**/.config/i3status
 !**/.config/gtk-*
 !**/.config/dunst
