@@ -17,26 +17,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 local plugins = {
   { import = "marvin.plugins" },
-  "wbthomason/packer.nvim", -- needed?
-  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim,
+  "nvim-lua/popup.nvim",   -- An implementation of the Popup API from vim in Neovim,
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins,
-  "kyazdani42/nvim-web-devicons",
 
   -- themes
   'folke/tokyonight.nvim',
-  { 'catppuccin/nvim', as = 'catppuccin' },
+  { 'catppuccin/nvim',        as = 'catppuccin' },
 
   -- extensions
   "preservim/vimux",
-  'stevearc/aerial.nvim',
-  "kyazdani42/nvim-tree.lua",
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { { 'nvim-lua/plenary.nvim' } }
-  },
-  { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons' },
   "moll/vim-bbye",
-  "nvim-lualine/lualine.nvim",
   {
     "folke/which-key.nvim",
     config = function()
@@ -51,15 +41,14 @@ local plugins = {
   "windwp/nvim-ts-autotag",
   "numToStr/Comment.nvim",
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
-  'lewis6991/gitsigns.nvim',
-  { 'akinsho/git-conflict.nvim', version = "*", config = function()
-    require('git-conflict').setup()
-  end },
-  "norcalli/nvim-colorizer.lua",
   {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = function()
+      require('git-conflict').setup()
+    end
   },
+  "norcalli/nvim-colorizer.lua",
   'ThePrimeagen/harpoon',
   'folke/todo-comments.nvim',
   'mbbill/undotree',
@@ -67,54 +56,12 @@ local plugins = {
   -- lsp
   'hashivim/vim-terraform',
   "towolf/vim-helm",
-  -- {,
-  --   "williamboman/mason.nvim",
-  --   "williamboman/mason-lspconfig.nvim",
-  --   "neovim/nvim-lspconfig",
-  -- }
   'github/copilot.vim',
   'tpope/vim-fugitive',
-  -- { 'NeogitOrg/neogit', dependencies = 'nvim-lua/plenary.nvim' },
   'junegunn/gv.vim',
   'akinsho/flutter-tools.nvim',
   "jose-elias-alvarez/nvim-lsp-ts-utils",
-
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    dependencies = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
-
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
-
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
-    }
-  },
   "onsails/lspkind.nvim",
-  -- "hrsh7th/nvim-cmp",
-  -- 'hrsh7th/cmp-nvim-lsp',
-  -- 'hrsh7th/cmp-buffer',
-  -- 'hrsh7th/cmp-path',
-  -- 'hrsh7th/cmp-cmdline',
-  -- { 'saadparwaiz1/cmp_luasnip' },
-  -- 'L3MON4D3/LuaSnip',
-  -- 'rafamadriz/friendly-snippets',
-  -- -- 'hrsh7th/vim-vsnip',
-  -- {,
-  --   "ray-x/lsp_signature.nvim",
-  --   tag = "v0.2.0"
-  -- }
   "ray-x/lsp_signature.nvim",
   {
     "glepnir/lspsaga.nvim",
