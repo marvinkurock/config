@@ -25,7 +25,7 @@ shift + cmd - w : yabai -m space --layout bsp
 shift + cmd - x : yabai -m space --layout float
 
 # apps
-cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+cmd - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # move to spaces
 cmd + shift - 1 : yabai -m window --space 1
