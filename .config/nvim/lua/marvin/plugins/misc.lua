@@ -45,20 +45,6 @@ return {
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "onsails/lspkind.nvim",
   "ray-x/lsp_signature.nvim",
-  {
-    "glepnir/lspsaga.nvim",
-    config = function()
-      require('lspsaga').setup({
-        lightbulb = {
-          enable = false,
-          enable_in_insert = false,
-          sign = false,
-          sign_priority = 40,
-          virtual_text = false,
-        },
-      })
-    end
-  },
   --
   -- DAP protocol
   "mfussenegger/nvim-dap",
