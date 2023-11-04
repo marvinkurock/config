@@ -13,9 +13,10 @@ keymap("n", "<leader>vq", ":VimuxCloseRunner<cr>", opts)
 keymap("n", "<leader>vc", ":VimuxInterruptRunner<cr>", opts)
 
 -- keymap("n", "<leader>rp", ":call VimuxRunCommand('python ' . bufname('%'))<cr>", opts)
-keymap("n", "<leader>rs", ":call VimuxRunCommand('npm start')<cr>", opts)
-keymap("n", "<leader>rr", ":VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>", opts)
-keymap("n", "<leader>rz", ":VimuxRunLastCommand<cr>:VimuxZoomRunner<cr>", opts)
+-- keymap("n", "<leader>rs", ":call VimuxRunCommand('npm start')<cr>", opts)
+-- keymap("n", "<leader>rr", ":VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>", opts)
+-- keymap("n", "<leader>rz", ":VimuxRunLastCommand<cr>:VimuxZoomRunner<cr>", opts)
+keymap("n", "<leader>r", ":VimuxOpenRunner<cr> :call VimuxSendKeys('up enter')<cr>", opts)
 function run_file()
   local f = vim.bo.filetype
   if f == 'javascript' or f == 'typescript' then
