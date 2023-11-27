@@ -7,21 +7,21 @@ yabai -m config top_padding    8;
 yabai -m config bottom_padding 8;
 yabai -m config left_padding   8;
 yabai -m config right_padding  8;
-
-# borders
-yabai -m config window_border off
-yabai -m config active_window_border_color 0xFF063970
-yabai -m config normal_window_border_color 0x00063970
+#
+# # borders
+# yabai -m config window_border off
+# yabai -m config active_window_border_color 0xFF063970
+# yabai -m config normal_window_border_color 0x00063970
 
 # explusions
 yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off border=off
-yabai -m rule --add app="^Archive Utility$" manage=off border=off
-yabai -m rule --add title="^Control Center$" manage=off border=off
-yabai -m rule --add app="^Steam$" manage=off border=off
-yabai -m rule --add app="^PS Remote Play$" manage=off border=off
-yabai -m rule --add app="^Finder$" manage=off border=off
-yabai -m rule --add app="^Preview$" manage=off border=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add title="^Control Center$" manage=off
+yabai -m rule --add app="^Steam$" manage=off
+yabai -m rule --add app="^PS Remote Play$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
 
 # space configs
 yabai -m rule --add app="^Slack$" space=3
