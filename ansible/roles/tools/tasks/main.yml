@@ -1,0 +1,8 @@
+- name: Download kubectl
+  become: true
+  ansible.builtin.shell:
+    cmd: |
+      curl -Lo /usr/local/bin/kubectl https://dl.k8s.io/release/$(curl -LS https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl
+      chmod 755 /usr/local/bin/kubectl
+    creates: /usr/local/bin/kubectl
+

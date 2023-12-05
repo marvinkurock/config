@@ -1,0 +1,37 @@
+- name: Install Dependencies
+  become: true
+  ansible.builtin.apt:
+    name: 
+      - cmake
+      - ninja-build 
+      - gettext 
+      - unzip 
+      - curl
+    state: latest
+- name: clone repo
+  ansible.builtin.git:
+    repo: https://github.com/neovim/neovim.git
+    dest: /opt/neovim
+    update: no
+    version: release-0.9
+- name: build neovim
+  become: true
+  community.general.make:
+    chdir: /opt/neovim
+    target: all
+    params:
+      CMAKE_BUILD_TYPE: RelWithDebInfo
+- name: install neovim
+  become: true
+  community.general.make:
+    chdir: /opt/neovim
+    target: install
+- name: Link Config
+  become: false
+  ansible.builtin.file:
+    src: '{{playbook_dir}}/../.config/nvim'
+    dest: ~/.config/nvim
+    owner: "{{ ansible_user_id }}"
+    state: link
+
+
