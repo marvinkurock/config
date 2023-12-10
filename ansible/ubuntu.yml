@@ -62,7 +62,7 @@
       ansible.builtin.file:
         src: '{{playbook_dir}}/../vms/ubuntu/.config/alacritty'
         dest: ~/.config/alacritty
-        owner: marvin
+        owner: "{{ ansible_user_id }}"
         state: link
 
     - name: Install shell
@@ -85,17 +85,17 @@
         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-    - name: Link zshrc
-      ansible.builtin.file:
-        src: '{{playbook_dir}}/../vms/ubuntu/.zshrc'
-        dest: ~/.zshrc
-        owner: marvin
-        state: link
-        force: true
+    # - name: Link zshrc
+    #   ansible.builtin.file:
+    #     src: '{{playbook_dir}}/../vms/ubuntu/.zshrc'
+    #     dest: ~/.zshrc
+    #     owner: "{{ ansible_user_id }}"
+    #     state: link
+    #     force: true
     - name: change shell
       become: true
       ansible.builtin.user:
-        name: marvin
+        name: "{{ ansible_user_id }}"
         shell: /bin/zsh
 
     - name: clone ohmytmux
@@ -158,7 +158,7 @@
       ansible.builtin.file:
         src: '{{playbook_dir}}/../.config/nvim'
         dest: ~/.config/nvim
-        owner: marvin
+        # owner: "{{ ansible_user_id }}"
         state: link
 
 - name: Install Node
@@ -167,11 +167,11 @@
     - name: Install nvm
       shell: >
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-        creates=/home/{{ ansible_user_id }}/.nvm/.nvm.sh
+        creates=/home/{"{{ ansible_user_id }}"}/.nvm/.nvm.sh
     - name: Install node and set version
       shell: >
         /bin/bash -c "source ~/.nvm/nvm.sh && nvm install node && nvm alias default node"
-        creates=/home/{{ ansible_user_id }}/.nvm/alias
+        creates=/home/{"{{ ansible_user_id }}"}/.nvm/alias
 
 - name: setup i3
   hosts: localhost
@@ -191,21 +191,21 @@
       ansible.builtin.file:
         src: '{{playbook_dir}}/../vms/ubuntu/.config/i3'
         dest: ~/.config/i3
-        owner: marvin
+        owner: "{{ ansible_user_id }}"
         state: link
     - name: Link i3Status Config
       become: false
       ansible.builtin.file:
         src: '{{playbook_dir}}/../vms/ubuntu/.config/i3status'
         dest: ~/.config/i3status
-        owner: marvin
+        owner: "{{ ansible_user_id }}"
         state: link
     - name: Link GTK3
       become: false
       ansible.builtin.file:
         src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-3.0'
         dest: ~/.config/gtk-3.0
-        owner: marvin
+        owner: "{{ ansible_user_id }}"
         state: link
         force: true
     - name: Link GTK4
@@ -213,7 +213,7 @@
       ansible.builtin.file:
         src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-4.0'
         dest: ~/.config/gtk-4.0
-        owner: marvin
+        owner: "{{ ansible_user_id }}"
         state: link
         force: true
     - name: Install Rofi

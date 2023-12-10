@@ -10,7 +10,7 @@ for_window [title="albert.*"] border pixel 0
 # gaps horizontal 0
 # gaps top -5
 # gaps bottom 0
-# gaps inner 10
+gaps inner 5
 
 # i3 config file (v4)
 #
@@ -35,7 +35,8 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/kali/lockscreen.png 
+# exec --no-startup-id sleep 1; xset s off; xset -dpms
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -52,7 +53,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/marvin/.cargo/bin/alacritty
+bindsym $mod+Return exec --no-startup-id /home/kali/.cargo/bin/alacritty
 
 
 # kill focused window
