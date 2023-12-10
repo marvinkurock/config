@@ -1,0 +1,10 @@
+# golang/  i3/  neovim/  nodejs/  tools/  zsh/
+- hosts: localhost
+  roles:
+    - neovim
+    - nodejs
+    - name: golang
+      vars:
+        arch: amd64
+    - zsh
+    - tools
