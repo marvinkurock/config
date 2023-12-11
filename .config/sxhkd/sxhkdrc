@@ -1,0 +1,41 @@
+# Apps
+super + Return
+	alacritty
+
+super + space
+  rofi -show drun
+
+super + shift + r
+	pkill -usr1 -x sxhkd; notify-send 'sxhkd reloaded'
+
+super + f
+  bspc node --state '~fullscreen'
+super + q
+  bspc node --close
+
+# desktops
+super + {1-9,0}
+	bspc desktop -f focused:'^{1-9,10}'
+
+# send focused node to another desktop
+super + shift + {1-9,0}
+	bspc node focused -d focused:'^{1-9,10}'
+
+# focus the node in the given direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# split
+super + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+super + ctrl + space
+  bspc node -p cancel
+
+
+# layout
+super + shift + w
+  bspc desktop -l tiled
+super + shift + s
+  bspc desktop -l monocle
+super + p
+  bspc node -f 'next.local'

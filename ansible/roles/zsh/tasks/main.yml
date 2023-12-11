@@ -3,6 +3,13 @@
     path: ~/.oh-my-zsh/oh-my-zsh.sh
   register: stat_ohmyzsh
 
+- name: Install zsh
+  become: true
+  ansible.builtin.apt:
+    name:
+      - zsh
+    state: latest
+
 - name: Install ohmyzsh
   when: not stat_ohmyzsh.stat.exists
   shell: |

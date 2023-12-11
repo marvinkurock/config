@@ -37,6 +37,16 @@
   args:
     creates: ~/.cargo/bin/alacritty
 
+- name: global install alacritty
+  become: true
+  ansible.builtin.copy:
+    src: ~/.cargo/bin/alacritty
+    dest: /usr/local/bin/alacritty
+    owner: root
+    group: root
+    mode: '0644'
+
+
 - name: Install lsd
   shell: >
     cargo install lsd

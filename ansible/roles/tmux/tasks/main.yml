@@ -1,0 +1,23 @@
+- name: Install shell
+  become: true
+  ansible.builtin.apt:
+    name:
+      - tmux
+    state: latest
+- name: clone ohmytmux
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: /opt/.tmux
+- name: link tmux.config
+  ansible.builtin.file:
+    src: /opt/.tmux/.tmux.conf
+    dest: ~/.tmux.conf
+    state: link
+    force: true
+- name: link tmux.config
+  ansible.builtin.file:
+    src: '{{ playbook_dir }}/../.tmux.conf.local'
+    dest: ~/.tmux.conf.local
+    state: link
+    force: true
