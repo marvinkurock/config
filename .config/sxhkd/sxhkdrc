@@ -5,6 +5,9 @@ super + Return
 super + space
   rofi -show drun
 
+super + shift + e
+  flameshot gui
+
 super + shift + r
 	bspc node @/ -R 90
 
