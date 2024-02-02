@@ -1,13 +1,22 @@
 k9s:
+  skin: cup
+  liveViewAutoRefresh: false
   refreshRate: 2
   maxConnRetry: 5
   enableMouse: false
+  enableImageScan: false
   headless: false
   logoless: false
   crumbsless: false
   readOnly: false
   noExitOnCtrlC: false
   noIcons: false
+  shellPod:
+    image: busybox:1.35.0
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
   skipLatestRevCheck: false
   logger:
     tail: 100
@@ -18,6 +27,7 @@ k9s:
     showTime: false
   currentContext: haute-cuisine-eks-production
   currentCluster: arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production
+  keepMissingClusters: false
   clusters:
     aks-techex-dev:
       namespace:
@@ -31,15 +41,6 @@ k9s:
         active: pod
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     aks-techex-prod:
       namespace:
@@ -54,51 +55,33 @@ k9s:
         active: pod
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     arn:aws:eks:eu-central-1:597031446072:cluster/haute-cuisine-eks-production:
       namespace:
-        active: microservices
+        active: default
         lockFavorites: false
         favorites:
+        - ingress-nginx
+        - kube-system
+        - all
         - default
         - shopify-apps
         - traefikee
         - microservices
         - warehouse-kaki
         - warehouse-rgb
-        - flux-system
-        - keda
-        - commercetools-extensions
       view:
         active: pod
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     arn:aws:eks:eu-central-1:851715686820:cluster/haute-cuisine-eks-testing:
       namespace:
         active: default
         lockFavorites: false
         favorites:
+        - finance-odoo
         - shopify-apps
-        - chatbot-core
         - microservices
         - traefikee
         - flux-system
@@ -107,24 +90,16 @@ k9s:
         - aws-cloudwatch-logs
         - warehouse
       view:
-        active: node
+        active: ctx
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     haute-cuisine-eks-staging:
       namespace:
-        active: shopify-apps
+        active: default
         lockFavorites: false
         favorites:
+        - default
         - shopify-apps
         - flux-system
         - external-secrets
@@ -133,20 +108,10 @@ k9s:
         - traefikee
         - datadog
         - all
-        - microservices
       view:
-        active: pod
+        active: pods
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
     k3s:
       namespace:
@@ -160,15 +125,6 @@ k9s:
         active: pod
       featureGates:
         nodeShell: false
-      shellPod:
-        image: busybox:1.35.0
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-        labels: {}
       portForwardAddress: localhost
   thresholds:
     cpu:
@@ -178,3 +134,4 @@ k9s:
       critical: 90
       warn: 70
   screenDumpDir: /var/folders/01/3y5lb3fs17d6g4jkgmt9fm8c0000gn/T/k9s-screens-marvinkurock
+  disablePodCounting: false

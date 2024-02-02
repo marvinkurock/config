@@ -1,13 +1,22 @@
 lastupdatecheck: 0
 recentrepos:
 - /Users/marvinkurock/development/configs
-- /Users/marvinkurock/development/techex/tmw/TrackMyWork.Scheduler
+- /Users/marvinkurock/development/work/k8s
+- /Users/marvinkurock/development/work/metarApi
+- /Users/marvinkurock/development/go/clis
 - /Users/marvinkurock/development/tqgg/k8s
-- /Users/marvinkurock/development/tqgg/infrastructure
-- /Users/marvinkurock/development/tqgg/product-publisher-lea
+- /Users/marvinkurock/development/tqgg/production-erp-connector
 - /Users/marvinkurock/development/tqgg/github-actions
-- /Users/marvinkurock/development/zeiss/curie
-- /Users/marvinkurock/development/zeiss/IQS-Software-Downloads
+- /Users/marvinkurock/development/tqgg/service_dialims
+- /Users/marvinkurock/development/tqgg/infrastructure
+- /Users/marvinkurock/development/work/marvinkurock.github.io
+- /Users/marvinkurock/development/go/aipDownloader
+- /Users/marvinkurock/development/tqgg/xentral-aws-infrastructure
+- /Users/marvinkurock/development/tqgg/foodist-redirect
+- /Users/marvinkurock/development/tqgg/qm-service
+- /Users/marvinkurock/development/tqgg/qm-api-gateway
+- /Users/marvinkurock/development/techex/tmw/TrackMyWork.Scheduler
+- /Users/marvinkurock/development/tqgg/product-publisher-lea
 - /Users/marvinkurock/development/tqgg/fulfillment-to-shipping-service
 - /Users/marvinkurock/development/tqgg/warehouse-endscan
 - /Users/marvinkurock/development/tqgg/hc-shopify-checkout-app

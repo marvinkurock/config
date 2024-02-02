@@ -469,7 +469,8 @@ bind -r L resize-pane -R 2
 # for linux
 # bind -r D neww -c "#{pane_current_path}" "[[ -e TODO.md ]] && nvim TODO.md || nvim ~/TODO.md"
 # for mac with obsidian
-bind -r D neww -c "#{pane_current_path}" "[[ -e TODO.md ]] && nvim TODO.md || nvim '/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/00-Todos.md'"
+bind -r T neww -c "#{pane_current_path}" "[[ -e TODO.md ]] && nvim TODO.md || nvim '/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/01-Todos.md'"
+bind -r D neww -c "#{pane_current_path}" 'nvim "/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/daily-notes/$(date +%Y-%m-%d).md"'
 
 bind-key -n ’ select-window -t 1
 bind-key -n ² select-window -t 2
