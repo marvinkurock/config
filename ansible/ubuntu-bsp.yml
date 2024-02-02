@@ -1,0 +1,12 @@
+# golang/  i3/  neovim/  nodejs/  tools/  zsh/
+- hosts: localhost
+  roles:
+    - neovim
+    - nodejs
+    - golang
+    - zsh
+    - tmux
+    - tools
+    - alacritty
+    - rofi
+    - brave

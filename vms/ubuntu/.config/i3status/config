@@ -11,6 +11,7 @@ general {
         interval = 5
 }
 
+order += "ethernet tun0"
 order += "ethernet _first_"
 order += "disk /"
 order += "load"
@@ -18,13 +19,19 @@ order += "memory"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = " W: (%quality at %essid) %ip"
         format_down = "W: down"
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = " E: %ip (%speed) "
+        format_down = " E: down "
+}
+
+ethernet tun0 {
+        
+        format_up = " V: %ip "
+        format_down = " "
 }
 
 battery all {

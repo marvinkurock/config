@@ -4,7 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/home/marvin/go/bin:/home/marvin/.cargo/bin:/usr/local/go/bin:$PATH"
+export PATH="/home/marvin/.local/bin/:$PATH"
 export EDITOR=nvim
+alias vim='nvim'
+alias v='nvim'
 tm ()
 {
   name=${1:-}
@@ -202,3 +205,7 @@ update()
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export ORACLE_HOME=/usr/lib/oracle/19.19/client64/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
+export PATH=${ORACLE_HOME}bin:$PATH
+

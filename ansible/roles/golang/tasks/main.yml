@@ -1,0 +1,19 @@
+- name: Download golang
+  become: true
+  ansible.builtin.unarchive:
+    src: "https://go.dev/dl/go1.21.1.linux-{{ arch }}.tar.gz"
+    dest: /usr/local/
+    remote_src: yes
+    creates: /usr/local/go/bin/go
+- name: install lazygit
+  environment:
+    PATH: "{{ lookup('env', 'PATH') }}:/usr/local/go/bin"
+  ansible.builtin.command:
+    cmd: go install github.com/jesseduffield/lazygit@latest
+    creates: ~/go/bin/lazygit
+- name: install k9s
+  environment:
+    PATH: "{{ lookup('env', 'PATH') }}:/usr/local/go/bin"
+  ansible.builtin.command:
+    cmd: go install github.com/derailed/k9s@latest
+    creates: ~/go/bin/k9s

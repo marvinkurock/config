@@ -1,0 +1,13 @@
+- name: Setup Brave repo
+  become: true
+  shell: |
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list
+  args:
+    creates: /etc/apt/sources.list.d/brave-browser-release.list
+- name: Install brave
+  become: true
+  ansible.builtin.apt:
+    name: brave-browser
+    state: latest
+    update_cache: true

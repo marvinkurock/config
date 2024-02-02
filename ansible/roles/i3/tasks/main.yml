@@ -1,0 +1,53 @@
+- name: Install packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - i3
+      - feh
+      - picom
+      - dunst
+      - rofi
+    state: latest
+- name: Clean up configs
+  shell: |
+    rm -rf ~/.config/i3
+    rm -rf ~/.config/gtk-*
+- name: Link Config
+  become: false
+  ansible.builtin.file:
+    src: '{{playbook_dir}}/../vms/ubuntu/.config/i3'
+    dest: ~/.config/i3
+    owner: "{{ ansible_user_id }}"
+    state: link
+- name: Link i3Status Config
+  become: false
+  ansible.builtin.file:
+    src: '{{playbook_dir}}/../vms/ubuntu/.config/i3status'
+    dest: ~/.config/i3status
+    owner: "{{ ansible_user_id }}"
+    state: link
+- name: Link GTK3
+  become: false
+  ansible.builtin.file:
+    src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-3.0'
+    dest: ~/.config/gtk-3.0
+    owner: "{{ ansible_user_id }}"
+    state: link
+    force: true
+- name: Link GTK4
+  become: false
+  ansible.builtin.file:
+    src: '{{playbook_dir}}/../vms/ubuntu/.config/gtk-4.0'
+    dest: ~/.config/gtk-4.0
+    owner: "{{ ansible_user_id }}"
+    state: link
+    force: true
+- name: Install Rofi
+  shell: |
+    mkdir -p ~/.local/share/rofi/themes
+    mkdir -p ~/.config/rofi/
+    curl 'https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.local/share/rofi/themes/catppuccin-mocha.rasi' -o ~/.local/share/rofi/themes/catppuccin-mocha.rasi
+    curl https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.config/rofi/config.rasi -o ~/.config/rofi/config.rasi 
+  args:
+    creates: ~/.config/rofi
+
