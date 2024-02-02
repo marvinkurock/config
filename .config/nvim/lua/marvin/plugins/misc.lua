@@ -38,7 +38,7 @@ return {
   -- lsp
   'hashivim/vim-terraform',
   "towolf/vim-helm",
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
   'tpope/vim-fugitive',
   'junegunn/gv.vim',
   'akinsho/flutter-tools.nvim',
