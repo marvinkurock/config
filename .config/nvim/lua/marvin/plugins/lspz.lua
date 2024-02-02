@@ -40,8 +40,8 @@ return {
     lsp.set_sign_icons({
       error = '',
       warn = '',
-      hint = '',
-      info = '',
+      hint = '',
+      info = '',
     })
 
     lsp.ensure_installed({
