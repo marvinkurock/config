@@ -173,3 +173,6 @@ vim.keymap.set("n", "<leader>gt", function()
     vim.cmd("e " .. new_filename)
   end
 end, opts)
+
+
+keymap("n", "<leader>ie", "iif err != nil {\n}<esc><S-o>", opts)
