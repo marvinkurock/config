@@ -44,7 +44,7 @@ keymap("n", "<leader>nh", ":noh<cr>", opts)
 keymap("n", "<leader>nw", ":set wrap!<cr>", opts)
 
 keymap("v", "<leader>yy", '"+y', {})
-keymap("n", "<leader>t", ":FloatermNew --height=0.95 --width=0.95<cr>", opts)
+-- keymap("n", "<leader>t", ":FloatermNew --height=0.95 --width=0.95<cr>", opts)
 keymap("n", "<leader>G", ":FloatermNew --height=0.95 --width=0.95 --cwd=<buffer> lazygit<cr>", opts)
 -- keymap("n", "<leader>G", ":0G<cr>", opts)
 
@@ -70,6 +70,8 @@ keymap("n", "<leader>gB", ":Telescope git_branches<cr>", opts)
 keymap("n", "<leader>gh", ":Gitsigns preview_hunk<cr>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 -- keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<cr>", opts)
+
+keymap("n", "<leader>t", ":TroubleToggle<cr>", opts)
 
 local dv_open = false
 local function toggle_dv()
