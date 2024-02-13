@@ -20,5 +20,9 @@ local plugins = {
   { import = "marvin.plugins" },
 }
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins, {
+  change_detection = {
+    notify = false
+  }
+})
 require("marvin")

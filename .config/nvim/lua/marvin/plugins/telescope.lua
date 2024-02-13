@@ -54,5 +54,15 @@ return {
       }
     }
     require('telescope').load_extension('dap')
+    local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<leader>fw", function()
+      local word = vim.fn.expand("<cword>")
+      builtin.grep_string({ search = word })
+    end, opts)
+
+    vim.keymap.set("n", "<leader>fW", function()
+      local word = vim.fn.expand("<cWORD>")
+      builtin.grep_string({ search = word })
+    end, opts)
   end
 }
