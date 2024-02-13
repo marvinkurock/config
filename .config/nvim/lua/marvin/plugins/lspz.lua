@@ -109,15 +109,6 @@ return {
       end, { "i", "s" }),
     })
 
-    local lspkind = require('lspkind')
-    local source_mapping = {
-      buffer = "[Buffer]",
-      nvim_lsp = "[LSP]",
-      luasnip = "[Lua]",
-      cmp_tabnine = "[TN]",
-      path = "[Path]"
-    }
-
     cmp.setup({
       mapping = cmp_mappings,
       sources = cmp.config.sources({
@@ -187,9 +178,6 @@ return {
       filetypes = { "templ", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
     })
     vim.filetype.add({ extension = { templ = "templ" } })
-
-    -- lspconfig.sourcekit.setup {}
-
 
     lsp.setup()
 

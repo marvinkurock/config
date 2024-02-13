@@ -1,7 +1,7 @@
 return {
   "stevearc/conform.nvim",
   event = { "BufRead", "BufNewFile" },
-  config = function ()
+  config = function()
     local conform = require("conform")
     conform.setup({
       formatters_by_ft = {
@@ -14,7 +14,7 @@ return {
       },
       format_on_save = {
         lsp_fallback = true,
-        async = false,
+        async = true,
         timeout_ms = 500
       },
     })
@@ -24,6 +24,6 @@ return {
         async = false,
         timeout_ms = 500
       })
-    end, { desc = "Format file or range (invisual mode)"})
+    end, { desc = "Format file or range (invisual mode)" })
   end
 }
