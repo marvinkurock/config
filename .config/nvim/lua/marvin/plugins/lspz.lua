@@ -171,6 +171,7 @@ return {
     lsp.on_attach(on_attach)
 
     local lspconfig = require('lspconfig')
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     lspconfig.yamlls.setup({
       settings = {
@@ -179,6 +180,13 @@ return {
         }
       }
     })
+
+    lspconfig.emmet_language_server.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "templ", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
+    })
+    vim.filetype.add({ extension = { templ = "templ" } })
 
     -- lspconfig.sourcekit.setup {}
 
