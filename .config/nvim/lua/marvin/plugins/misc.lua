@@ -39,8 +39,6 @@ return {
       require("colorizer").setup()
     end
   },
-  { "jose-elias-alvarez/nvim-lsp-ts-utils" },
-
 
   --   -- extensions
   --   "preservim/vimux",
