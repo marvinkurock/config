@@ -12,23 +12,7 @@ keymap("n", "<leader>vz", ":VimuxZoomRunner<cr>", opts)
 keymap("n", "<leader>vq", ":VimuxCloseRunner<cr>", opts)
 keymap("n", "<leader>vc", ":VimuxInterruptRunner<cr>", opts)
 
--- keymap("n", "<leader>rp", ":call VimuxRunCommand('python ' . bufname('%'))<cr>", opts)
--- keymap("n", "<leader>rs", ":call VimuxRunCommand('npm start')<cr>", opts)
--- keymap("n", "<leader>rr", ":VimuxInterruptRunner<cr>:VimuxRunLastCommand<cr>", opts)
--- keymap("n", "<leader>rz", ":VimuxRunLastCommand<cr>:VimuxZoomRunner<cr>", opts)
 keymap("n", "<leader>r", ":VimuxOpenRunner<cr> :call VimuxSendKeys('up enter')<cr>", opts)
-function run_file()
-  local f = vim.bo.filetype
-  if f == 'javascript' or f == 'typescript' then
-    vim.cmd [[VimuxRunCommand('npm start')]]
-  elseif f == 'rust' then
-    vim.cmd [[VimuxRunCommand('cargo run')]]
-  elseif f == 'dart' then
-    vim.cmd [[FlutterDevices]]
-  end
-end
-
-vim.keymap.set("n", "<leader>R", run_file, opts)
 
 keymap("n", "<leader>dt", ":lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<cr>",
   opts)
@@ -108,13 +92,6 @@ keymap("n", "<leader>st", ":%s/\\([0-9]\\{2\\}\\)\\([0-9]\\{2\\}\\)/\\1:\\2/g", 
 
 keymap("n", "<C-j>", ":cnext<cr>", opts)
 keymap("n", "<C-k>", ":cprev<cr>", opts)
---
--- -- Normal --
--- -- Better window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-Left>", ":vertical resize -5<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +5<cr>", opts)
@@ -125,12 +102,6 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
-
--- -- Navigate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
--- keymap("n", "<Tab>", ">>", opts)
--- keymap("n", "<S-Tab>", "<<", opts)
 
 keymap("i", "<S-Tab>", "<C-D>", {})
 

@@ -53,7 +53,7 @@ return {
         -- please take a look at the readme of the extension you want to configure
       }
     }
-    require('telescope').load_extension('dap')
+    -- require('telescope').load_extension('dap')
     local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<leader>fw", function()
       local word = vim.fn.expand("<cword>")

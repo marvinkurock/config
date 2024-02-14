@@ -34,7 +34,6 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  termguicolors = true,
 }
 
 vim.g.python_recommended_style = 0
@@ -44,3 +43,7 @@ vim.g.loaded_netrwPlugin = 1
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+require("marvin.core.autocommands")
+require("marvin.core.keymaps")
+require("marvin.core.theme")

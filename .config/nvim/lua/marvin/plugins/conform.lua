@@ -27,3 +27,4 @@ return {
     end, { desc = "Format file or range (invisual mode)" })
   end
 }
+
