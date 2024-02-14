@@ -1,3 +1,17 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#89ddff"
+      - bold
+    inactiveBorderColor:
+      - "#565f89"
+    optionsTextColor:
+      - "#3d59a1"
+    selectedLineBgColor:
+      - "#292e42"
+      - bold
+    selectedRangeBgColor:
+      - "#89ddff"
 git:
   paging:
     colorArg: always
