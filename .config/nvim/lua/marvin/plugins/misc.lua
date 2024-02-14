@@ -38,7 +38,8 @@ return {
       vim.opt.termguicolors = true
       require("colorizer").setup()
     end
-  }
+  },
+  { "jose-elias-alvarez/nvim-lsp-ts-utils" },
 
 
   --   -- extensions
