@@ -1,6 +1,26 @@
 return {
   { "numToStr/Comment.nvim" },
-  { "catppuccin/nvim" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("gruvbox").setup({
+        transparent_mode = true,
+      })
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      require("tokyonight").setup({
+        transparent = true, -- enable transparent background
+        style = 'night',
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        }
+      })
+    end
+  },
   {
     "windwp/nvim-autopairs",
     config = function()

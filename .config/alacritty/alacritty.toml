@@ -1,0 +1,62 @@
+import = ["/Users/marvinkurock/.config/alacritty/themes/tokyonight.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14.0
+
+[font.italic]
+family = "MesloLGM Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "MesloLGM Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "’"
+key = "Key1"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "²"
+key = "Key2"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "³"
+key = "Key3"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "¢"
+key = "Key4"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0011"
+key = "Q"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001Bc"
+key = "C"
+mods = "Alt"
+
+[window]
+decorations = "buttonless"
+opacity = 0.92
+
+[window.dimensions]
+columns = 196
+lines = 54
+
+[window.padding]
+x = 10
+y = 10
