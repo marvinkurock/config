@@ -62,6 +62,10 @@ return {
       vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
       vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
 
+      if client.name == "htmx" then
+        client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+      end
+
       if vim.bo[bufnr].filetype == "helm" then
         vim.diagnostic.disable(bufnr)
         vim.defer_fn(function()
