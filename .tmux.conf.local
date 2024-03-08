@@ -434,11 +434,11 @@ tmux_conf_uninstall_plugins_on_reload=true
 # "$@"
 # # /!\ do not remove the previous line
 
-
 setw -g mouse on
 bind ü copy-mode
-bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy" \; send-keys -X clear-selection
-bind-key -T copy-mode-vi Y send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+#bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy" \; send-keys -X clear-selection
+bind -T copy-mode-vi y send-keys -X copy-selection "tmux paste-buffer"
+bind -T copy-mode-vi Y send-keys -X copy-selection-and-cancel "tmux paste-buffer"
 bind -T copy-mode-vi v send-keys -X begin-selection
 
 bind ä break-pane
@@ -470,7 +470,7 @@ bind -r L resize-pane -R 2
 # bind -r D neww -c "#{pane_current_path}" "[[ -e TODO.md ]] && nvim TODO.md || nvim ~/TODO.md"
 # for mac with obsidian
 bind -r T neww -c "#{pane_current_path}" "[[ -e TODO.md ]] && nvim TODO.md || nvim '/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/01-Todos.md'"
-bind -r D neww -c "#{pane_current_path}" 'nvim "/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/daily-notes/$(date +%Y-%m-%d).md"'
+bind -r D neww -c "#{pane_current_path}" 'nvim --cmd "cd /Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/" "/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/daily-notes/$(date +%Y-%m-%d).md"'
 
 bind-key -n ’ select-window -t 1
 bind-key -n ² select-window -t 2
