@@ -1,12 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
 - /Users/marvinkurock/development/configs
+- /Users/marvinkurock/development/go/aipDownloader
 - /Users/marvinkurock/development/go/file_mover
-- /Users/marvinkurock/development/work/marvinkurock.github.io
 - /Users/marvinkurock/development/work/metarApi
+- /Users/marvinkurock/development/work/marvinkurock.github.io
 - /Users/marvinkurock/development/work/k8s
 - /Users/marvinkurock/development/go/clis
-- /Users/marvinkurock/development/go/aipDownloader
 - /Users/marvinkurock/development/techex/tmw/TrackMyWork.Scheduler
 - /Users/marvinkurock/development/techex/tmw/TrackMyWork.Services
 - /Users/marvinkurock/development/techex/TrackMyInvestments
