@@ -16,11 +16,6 @@ cr()
   gcc -o ${1/.c/} $1 && ./${1/.c/}
 }
 alias switch_branch="git branch --remote | fzf | xargs git switch -c"
-gozeiss()
-{
-  export AZURE_CONFIG_DIR=/Users/marvinkurock/.zeiss
-  export PATH=/opt/node/bin:$PATH
-}
 
 go-project()
 {

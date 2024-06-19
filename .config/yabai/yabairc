@@ -23,6 +23,7 @@ yabai -m rule --add app="^PS Remote Play$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^NVIDIA GeForce NOW$" manage=off
 
 # space configs
 yabai -m rule --add app="^Slack$" space=3

@@ -12,11 +12,6 @@ return {
         svelte = { "prettier" },
         css = { "prettier" },
       },
-      format_on_save = {
-        lsp_fallback = true,
-        async = true,
-        timeout_ms = 500
-      },
     })
     vim.keymap.set({ "n", "v" }, "<leader>cf", function()
       conform.format({
@@ -27,4 +22,3 @@ return {
     end, { desc = "Format file or range (invisual mode)" })
   end
 }
-
