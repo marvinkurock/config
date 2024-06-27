@@ -41,14 +41,6 @@ return {
   },
   { "preservim/vimux" },
   { "voldikss/vim-floaterm" },
-  {
-    'sindrets/diffview.nvim',
-    config = function()
-      require("diffview").setup({
-        enhanced_diff_hl = true,
-      })
-    end
-  },
   { "towolf/vim-helm" },
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
