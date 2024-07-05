@@ -49,6 +49,36 @@ chars = "\u001Bc"
 key = "C"
 mods = "Alt"
 
+[[keyboard.bindings]]
+chars = "ö"
+key = ";"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Ö"
+key = ";"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "ä"
+key = "'"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Ä"
+key = "'"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "ü"
+key = "["
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Ü"
+key = "["
+mods = "Alt|Shift"
+
 [window]
 decorations = "buttonless"
 opacity = 0.92
