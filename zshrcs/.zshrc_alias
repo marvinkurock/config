@@ -1,4 +1,4 @@
-alias gfb="git branch --remote | fzf | xargs git switch -c"
+alias gfb="git branch --remote | fzf | sed 's/origin\///g' | xargs git switch -c"
 
 update()
 {
