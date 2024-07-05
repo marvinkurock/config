@@ -15,7 +15,6 @@ cr()
 {
   gcc -o ${1/.c/} $1 && ./${1/.c/}
 }
-alias switch_branch="git branch --remote | fzf | xargs git switch -c"
 
 go-project()
 {
@@ -146,16 +145,9 @@ export wrockyou="/opt/wordlists/rockyou.txt"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 
-# aliases
-alias zeiss-forward="ssh -L 5050:localhost:5050 -L 1234:localhost:1234 -N zeiss"
-alias internetip="curl ipecho.net/plain ; echo"
-
-alias foodist_check="python3 /Users/marvinkurock/development/foodist/shop-checker/main.py"
 alias charge="ioreg -w 0 -f -r -c AppleSmartBattery | grep Amperage"
 alias burp="java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED  -jar /opt/jar/burpsuite_community_v2021.10.2.jar"
-alias helm="nocorrect helm"
 alias jupyter="source ~/tensorflow-metal/bin/activate && jupyter-lab"
-alias vim=nvim
 
 focusme () {
   limelight &>/dev/null &
@@ -190,10 +182,6 @@ gh-deploy ()
 }
 
 alias ls="lsd"
-alias ll="ls -l"
-alias la="ls -la"
-alias lg="lazygit"
-
 alias cat="bat -p"
 alias v=nvim
 alias vim=nvim
@@ -201,33 +189,6 @@ alias vim=nvim
 alias ranger=". ranger"
 # alias tf=terraform@1
 
-alias k=kubectl
-alias kcc="k config get-contexts"
-alias kgp="k get pods"
-alias kdp="k describe pod"
-alias kd="k describe"
-alias kgns="k get ns"
-alias kgs="k get services"
-alias kds="k describe service"
-alias kgde="k get deployment"
-alias kdde="k describe deployment"
-alias kgi="k get ingress"
-alias kdi="k describe ingress"
-alias kgir="k get ingressroute"
-alias kdir="k describe ingressroute"
-alias kl="k logs"
-alias klf="k logs --follow=true"
-alias kx="k exec -it"
-ksn()
-{
-    kubectl config set-context --current --namespace="$1"
-}
-alias kcns="kubectl config view --minify | grep namespace:"
-alias kdn="kubectl describe node"
-alias kgn="kubectl get nodes"
-alias ktn="kubectl top nodes"
-alias ktp="kubectl top pods"
-alias kuc="k config use-context"
 
 update()
 {
@@ -293,4 +254,6 @@ if type fd &> /dev/null; then
     fd --type d --hidden --follow --exclude ".git" . "$1"
   }
 fi
+
+source ~/development/configs/zshrcs/.zshrc_alias
 

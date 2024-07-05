@@ -1,0 +1,53 @@
+alias gfb="git branch --remote | fzf | xargs git switch -c"
+
+update()
+{
+  git add .;
+  if [[ $1 ]]
+  then
+    echo $1;
+    git commit -m "$1"
+  else
+    echo "update";
+    git commit -m "update"
+  fi
+}
+updatep()
+{
+  update "$1"
+  git push;
+}
+
+alias k=kubectl
+alias kcc="k config get-contexts"
+alias kgp="k get pods"
+alias kdp="k describe pod"
+alias kd="k describe"
+alias kgns="k get ns"
+alias kgs="k get services"
+alias kds="k describe service"
+alias kgde="k get deployment"
+alias kdde="k describe deployment"
+alias kgi="k get ingress"
+alias kdi="k describe ingress"
+alias kgir="k get ingressroute"
+alias kdir="k describe ingressroute"
+alias kl="k logs"
+alias klf="k logs --follow=true"
+alias kx="k exec -it"
+ksn()
+{
+    kubectl config set-context --current --namespace="$1"
+}
+alias kcns="kubectl config view --minify | grep namespace:"
+alias kdn="kubectl describe node"
+alias kgn="kubectl get nodes"
+alias ktn="kubectl top nodes"
+alias ktp="kubectl top pods"
+alias kuc="k config use-context"
+
+alias ll="ls -l"
+alias la="ls -la"
+alias lg="lazygit"
+
+alias internetip="curl ipecho.net/plain ; echo"
