@@ -4,6 +4,20 @@ local keymap = vim.api.nvim_set_keymap
 --
 keymap("", "<Space>", "<Nop>", opts)
 
+vim.keymap.set({"n"}, "<M-t>", function ()
+  print("test")
+end)
+
+keymap("n", "<M-h>", "<C-w>h", opts)
+keymap("n", "<M-j>", "<C-w>j", opts)
+keymap("n", "<M-k>", "<C-w>k", opts)
+keymap("n", "<M-l>", "<C-w>l", opts)
+
+keymap("n", "<M-->", "<C-w>-", opts)
+keymap("n", "<M-=>", "<C-w>+", opts)
+keymap("n", "<M-,>", "<C-w>5<", opts)
+keymap("n", "<M-.>", "<C-w>5>", opts)
+
 keymap("n", "ü", "{", opts)
 keymap("n", "+", "}", opts)
 
@@ -22,7 +36,7 @@ keymap("n", "<leader>xu", ":s/\\[x\\]/[ ]<cr>:noh<cr>", opts)
 keymap("n", "<leader>xn", "o- [ ] ", opts)
 keymap("n", "<leader>xd", "dd G p <C-o>k", opts) -- cut the line and paste it to the bottom of the file (move todo to done)
 
-keymap("n", "<C-p>", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<C-p>", ":Ex<cr>", opts)
 -- keymap("n", "<C-x>", ":Bdelete<cr>", opts)
 keymap("n", "<leader>nh", ":noh<cr>", opts)
 keymap("n", "<leader>nw", ":set wrap!<cr>", opts)

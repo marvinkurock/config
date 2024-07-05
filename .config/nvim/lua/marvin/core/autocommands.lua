@@ -12,3 +12,13 @@ autocmd('TextYankPost', {
         })
     end,
 })
+
+autocmd('VimEnter', {
+  callback = function(data)
+    local isDir = vim.fn.isdirectory(data.file) == 1
+    if not isDir then
+      return
+    end
+    vim.cmd.cd(data.file)
+  end
+})

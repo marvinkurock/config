@@ -37,8 +37,13 @@ local options = {
 }
 
 vim.g.python_recommended_style = 0
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.neovide_input_macos_alt_is_meta = true
+vim.g.netrw_preview = 1
+vim.g.netrw_alto = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_winsize = 30
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 for k, v in pairs(options) do
   vim.opt[k] = v
