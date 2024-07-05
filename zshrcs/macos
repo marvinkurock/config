@@ -190,19 +190,6 @@ alias ranger=". ranger"
 # alias tf=terraform@1
 
 
-update()
-{
-  git add .;
-  if [[ $1 ]]
-  then
-    echo $1;
-    git commit -m "$1"
-  else
-    echo "update";
-    git commit -m "update"
-  fi
-  git push;
-}
 
 padding()
 {

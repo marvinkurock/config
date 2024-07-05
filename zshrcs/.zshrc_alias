@@ -17,6 +17,30 @@ updatep()
   update "$1"
   git push;
 }
+del_local_branches()
+{
+  branches=$(git branch | grep -xv "\(* \)\?main\|master")
+  echo "Want to delete all these branches?"
+  echo $branches
+  input="n"
+  echo -n "[N y]"
+  read -r input
+  if [[ "$input" == "y" || "$input" == "Y" ]]; then
+    echo deleting
+    echo $branches | xargs git branch -D
+  fi
+}
+
+gnb()
+{
+  if [[ -z "$1" ]]; then
+    echo "you need to provide a branch name"
+    return 0
+  fi
+  git fetch origin
+  gcm
+  gco -b "$1"
+}
 
 alias k=kubectl
 alias kcc="k config get-contexts"
