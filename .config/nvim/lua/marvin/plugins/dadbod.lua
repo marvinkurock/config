@@ -13,7 +13,7 @@ return {
   init = function()
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
-    vim.g.db_ui_save_location = "~/.dadbot"
+    vim.g.db_ui_save_location = "~/.dadbod"
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "dbout",
       callback = function()
