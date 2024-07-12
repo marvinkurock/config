@@ -447,11 +447,8 @@ bind + paste-buffer
 set -g prefix C-y
 set -g prefix C-z
 set -gu prefix2
-unbind C-b
-unbind C-a
 unbind C-l
 
-bind C-y send-prefix
 bind C-z send-prefix
 
 bind -r r resize-pane -Z \; select-pane -U
