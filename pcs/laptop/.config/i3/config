@@ -218,7 +218,6 @@ bindsym $mod+Shift+e exec flameshot gui
 
 # exec --no-startup-id xrandr --output eDP --rate 60 --mode 2560x1600
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/bin/brightnessctl -r
 
 
 exec_always --no-startup-id setxkbmap -option caps:escape
@@ -234,3 +233,5 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id compton
 #exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xinput --set-prop 9 157 1 0 0 0 1 0 0 0 2
+
+exec --no-startup-id /usr/bin/brightnessctl -r

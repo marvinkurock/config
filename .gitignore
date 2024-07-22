@@ -12,7 +12,6 @@
 !**/.config/gtk-*
 !**/.config/dunst
 !**/.config/polybar
-!**/.config/rofi
 !**/.config/nvim
 !**/.config/k9s
 !**/.config/neofetch
