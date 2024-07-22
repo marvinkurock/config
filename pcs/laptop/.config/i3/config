@@ -7,6 +7,8 @@
 for_window [class=".*"] border pixel 2
 for_window [title="albert.*"] border pixel 0
 for_window [class="Pavucontrol"] floating enable, border normal
+for_window [title="Friends List"] floating enable
+for_window [title="Steam Settings"] floating enable
 # # workspace 1 gaps outer 50
 # gaps horizontal 0
 # gaps top -5
@@ -36,7 +38,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/wallpaper/lockscreen.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -49,8 +51,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/bin/brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/bin/brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/bin/brightnessctl set +10% && sudo /usr/bin/brightnessctl -s
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/bin/brightnessctl set 10%- && sudo /usr/bin/brightnessctl -s
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -169,7 +171,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -210,7 +212,14 @@ bar {
   status_command i3status
 }
 
-exec --no-startup-id xrandr --output eDP --rate 60 --mode 2560x1600
+bindsym $mod+Shift+e exec flameshot gui
+
+
+
+# exec --no-startup-id xrandr --output eDP --rate 60 --mode 2560x1600
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/brightnessctl -r
+
 
 exec_always --no-startup-id setxkbmap -option caps:escape
 # exec_always --no-startup-id bash -c 'sleep 1 && xmodmap ~/.Xmodmap'
