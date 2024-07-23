@@ -11,6 +11,7 @@ general {
         interval = 5
 }
 
+order += "ethernet wg0"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -20,8 +21,8 @@ order += "load"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = " W: (%quality at %essid) %ip "
-        format_down = "W: down"
+        format_up = " W: %ip <%essid> [%quality] "
+        format_down = ""
 }
 
 ethernet _first_ {
@@ -29,10 +30,10 @@ ethernet _first_ {
         format_down = ""
 }
 
-ethernet tun0 {
+ethernet wg0 {
         
-        format_up = " V: %ip "
-        format_down = " "
+        format_up = " VPN: %ip "
+        format_down = ""
 }
 
 battery all {
