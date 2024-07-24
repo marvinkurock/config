@@ -38,6 +38,7 @@ min_icon_size = 48
     # alignment of message text.
     # Possible values are "left", "center" and "right"
     alignment = left
+    content_alignment = top
 
     # The frequency with wich text that is longer than the notification
     # window allows bounces back and forth.
@@ -73,7 +74,7 @@ min_icon_size = 48
     width = 400
     origin = top-right
 
-    text_icon_padding = 200
+    text_icon_padding = 20
 
     # Shrink window if it's smaller than the width. Will be ignored if width is 0.
     shrink = no
