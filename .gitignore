@@ -2,6 +2,9 @@
 **/.config/*
 !**/yabai
 !**/.config/scripts
+!**/.config/dunst
+!**/.config/autorandr
+!**/.config/config-scripts
 !**/.config/skhd
 !**/.config/alacritty
 !**/.config/i3

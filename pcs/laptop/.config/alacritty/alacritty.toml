@@ -2,10 +2,11 @@ import = ["/home/marvin/.config/alacritty/themes/tokyonight.toml"]
 
 [env]
 TERM = "xterm-256color"
+WINIT_HIDPI_FACTOR = "1.0"
 
 
 [font]
-size = 11.0
+size = 7.0
 
 [font.italic]
 family = "MesloLGM Nerd Font Mono"
