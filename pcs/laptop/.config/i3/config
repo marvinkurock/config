@@ -7,8 +7,15 @@
 for_window [class=".*"] border pixel 2
 for_window [title="albert.*"] border pixel 0
 for_window [class="Pavucontrol"] floating enable, border normal
+for_window [title="Bluetooth Devices"] floating enable, border normal
+# Steam
 for_window [title="Friends List"] floating enable
 for_window [title="Steam Settings"] floating enable
+
+# Virutal box
+for_window [title="Oracle VM VirtualBox Manager"] floating enable, border normal
+for_window [title="VirtualBox - Preferences"] floating enable, border normal
+for_window [title=".* - Settings"] floating enable, border normal
 # # workspace 1 gaps outer 50
 # gaps horizontal 0
 # gaps top -5
@@ -54,6 +61,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/bin/brightnessctl set +10% && sudo /usr/bin/brightnessctl -s
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/bin/brightnessctl set 10%- && sudo /usr/bin/brightnessctl -s
+
+bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/config-scripts/toggle-touchpad.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

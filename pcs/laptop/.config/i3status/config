@@ -37,7 +37,7 @@ ethernet wg0 {
 }
 
 battery all {
-        format = " %percentage "
+        format = " %percentage [%remaining] "
 }
 
 disk "/" {
