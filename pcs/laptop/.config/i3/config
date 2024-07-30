@@ -6,11 +6,21 @@
 
 for_window [class=".*"] border pixel 2
 for_window [title="albert.*"] border pixel 0
+for_window [class="Pavucontrol"] floating enable, border normal
+for_window [title="Bluetooth Devices"] floating enable, border normal
+# Steam
+for_window [title="Friends List"] floating enable
+for_window [title="Steam Settings"] floating enable
+
+# Virutal box
+for_window [title="Oracle VM VirtualBox Manager"] floating enable, border normal
+for_window [title="VirtualBox - Preferences"] floating enable, border normal
+for_window [title=".* - Settings"] floating enable, border normal
 # # workspace 1 gaps outer 50
-gaps horizontal 0
-gaps top -5
-gaps bottom 0
-gaps inner 10
+# gaps horizontal 0
+# gaps top -5
+# gaps bottom 0
+gaps inner 5
 
 # i3 config file (v4)
 #
@@ -35,7 +45,8 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c '000000'
+bindsym $mod+Control+l exec i3lock -c '000000'
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -48,11 +59,16 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/bin/brightnessctl set +10% && sudo /usr/bin/brightnessctl -s
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/bin/brightnessctl set 10%- && sudo /usr/bin/brightnessctl -s
+
+bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/config-scripts/toggle-touchpad.sh
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 
 # kill focused window
@@ -62,7 +78,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec --no-startup-id dmenu_run
-bindsym $mod+space exec --no-startup-id albert toggle
+bindsym $mod+space exec rofi -show drun
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -95,10 +111,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+z split h
+bindsym $alt+h split h
+bindcode $mod+47 split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $alt+v split v
+bindsym $mod+m split v
+
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -162,7 +181,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -197,17 +216,32 @@ bindsym $mod+r mode "resize"
 #   position top
 #   font pango:MesloLGS Nerd Font 10
 #   status_command i3blocks -c ~/.config/i3/i3blocks.conf
-# }
+#n_US }
+bar {
+  font pango:MesloLGS Nerd Font 10
+  status_command i3status
+}
 
-exec_always --no-startup-id setxkbmap en_US -option caps:escape
-exec_always --no-startup-id bash -c 'sleep 1 && xmodmap ~/.Xmodmap'
-exec_always --no-startup-id nitrogen --restore
-exec_always --no-startup-id albert
+bindsym $mod+Shift+e exec flameshot gui
+
+
+
+# exec --no-startup-id xrandr --output eDP --rate 60 --mode 2560x1600
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+
+exec_always --no-startup-id setxkbmap -option caps:escape
+# exec_always --no-startup-id bash -c 'sleep 1 && xmodmap ~/.Xmodmap'
+#exec_always --no-startup-id albert
+
+exec_always --no-startup-id feh --bg-scale ~/wallpaper/active.jpg
 exec_always --no-startup-id dunst
 
 # exec_always --no-startup-id prlcc
 # exec_always --no-startup-id ~/.config/scripts/parallels-tools.sh
 # exec_always --no-startup-id prlcp
-exec_always --no-startup-id picom
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id compton
+exec_always --no-startup-id bash ~/.config/config-scripts/mouse.sh
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+exec --no-startup-id /usr/bin/brightnessctl -r

@@ -17,6 +17,7 @@ gaps inner 5
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -35,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/kali/lockscreen.png 
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/marvin/lockscreen.png
 # exec --no-startup-id sleep 1; xset s off; xset -dpms
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -53,7 +54,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id /home/kali/.cargo/bin/alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 
 # kill focused window
@@ -96,10 +97,12 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+z split h
+bindsym $alt+h split h
+bindcode $mod+47 split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $alt+v split v
+bindsym $mod+m split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -107,12 +110,12 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 bindsym $mod+Shift+s layout tabbed
-bindsym $mod+Shift+w layout toggle split
+bindsym $alt+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+
 bindsym $mod+d focus mode_toggle
 
 # focus the parent container
@@ -207,4 +210,5 @@ exec_always --no-startup-id feh --bg-scale ~/wallpaper.jpg
 exec_always --no-startup-id dunst
 exec_always --no-startup-id picom
 exec --no-startup-id /usr/libexec/gsd-xsettings
+exec_always --no-startup-id setxkbmap us_intl
 # exec --no-startup-id vmware-user-suid-wrapper

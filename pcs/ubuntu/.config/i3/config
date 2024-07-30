@@ -6,6 +6,7 @@
 
 for_window [class=".*"] border pixel 2
 for_window [title="albert.*"] border pixel 0
+for_window [class="Pavucontrol"] floating enable, border normal
 # # workspace 1 gaps outer 50
 # gaps horizontal 0
 # gaps top -5
@@ -95,10 +96,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+z split h
+bindsym $alt+h split h
+bindcode $mod+47 split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $alt+v split v
+bindsym $mod+m split v
+
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -197,17 +201,22 @@ bindsym $mod+r mode "resize"
 #   position top
 #   font pango:MesloLGS Nerd Font 10
 #   status_command i3blocks -c ~/.config/i3/i3blocks.conf
-# }
+#n_US }
+bar {
+  font pango:MesloLGS Nerd Font 10
+  status_command i3status
+}
 
-exec_always --no-startup-id setxkbmap en_US -option caps:escape
-exec_always --no-startup-id bash -c 'sleep 1 && xmodmap ~/.Xmodmap'
-exec_always --no-startup-id feh --bg-scale ~/wallpapers/pexels-pixabay-461940.jpg
+# exec_always --no-startup-id setxkbmap -option caps:escape
+# exec_always --no-startup-id bash -c 'sleep 1 && xmodmap ~/.Xmodmap'
 #exec_always --no-startup-id albert
+
+exec_always --no-startup-id feh --bg-scale ~/wallpapers/pexels-pixabay-461940.jpg
 exec_always --no-startup-id dunst
 
 # exec_always --no-startup-id prlcc
 # exec_always --no-startup-id ~/.config/scripts/parallels-tools.sh
 # exec_always --no-startup-id prlcp
-exec_always --no-startup-id picom
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id xinput --set-prop 10 158 0.5 0 0 0 0.5 0 0 0 1
+exec_always --no-startup-id compton
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id xinput --set-prop 9 157 1 0 0 0 1 0 0 0 2

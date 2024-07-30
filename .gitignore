@@ -2,6 +2,9 @@
 **/.config/*
 !**/yabai
 !**/.config/scripts
+!**/.config/dunst
+!**/.config/autorandr
+!**/.config/config-scripts
 !**/.config/skhd
 !**/.config/alacritty
 !**/.config/i3
@@ -12,7 +15,6 @@
 !**/.config/gtk-*
 !**/.config/dunst
 !**/.config/polybar
-!**/.config/rofi
 !**/.config/nvim
 !**/.config/k9s
 !**/.config/neofetch

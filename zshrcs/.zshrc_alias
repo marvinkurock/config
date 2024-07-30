@@ -1,4 +1,11 @@
 alias gfb="git branch --remote | fzf | sed 's/origin\///g' | xargs git switch -c"
+alias gamemode="./.config/config-scripts/gamemode.sh"
+
+tm ()
+{
+  name=${1:-}
+  tmux new-session -A -s $name 
+}
 
 update()
 {

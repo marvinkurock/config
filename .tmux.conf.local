@@ -444,14 +444,11 @@ bind -T copy-mode-vi v send-keys -X begin-selection
 bind ä break-pane
 bind ö command-prompt -p "join pane to:" "join-pane -t :'%%'"
 bind + paste-buffer
-set -g prefix C-y
-set -g prefix C-z
 set -gu prefix2
-unbind C-b
-unbind C-a
+set -g prefix2 C-z
+set -g prefix C-b
 unbind C-l
 
-bind C-y send-prefix
 bind C-z send-prefix
 
 bind -r r resize-pane -Z \; select-pane -U
