@@ -162,6 +162,13 @@ return {
     })
 
 
+    -- dadbod setup
+    cmp.setup.filetype({"sql", "mysql"}, {
+      sources = {
+        { name = "buffer" },
+        { name = "vim-dadbod-completion" }
+      }
+    })
 
     -- ADDITIONAL FILETYPES
     vim.filetype.add({ extension = { templ = "templ" } })

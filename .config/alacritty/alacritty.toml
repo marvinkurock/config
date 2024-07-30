@@ -79,6 +79,16 @@ chars = "Ü"
 key = "["
 mods = "Alt|Shift"
 
+[[keyboard.bindings]]
+action = "paste"
+key = "v"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "copy"
+key = "c"
+mods = "Control|Shift"
+
 [window]
 decorations = "buttonless"
 opacity = 0.92

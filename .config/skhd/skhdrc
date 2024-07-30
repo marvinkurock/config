@@ -1,44 +1,70 @@
 #!/bin/sh
 
 # movement
-cmd - h : yabai -m window --focus stack.prev || yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus stack.next || yabai -m window --focus east
-
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
-
-# layouts
-shift + cmd - f : yabai -m window --toggle zoom-fullscreen
-shift + cmd - t : yabai -m window --toggle split
-shift + cmd - b : yabai -m space --balance
-shift + cmd - r : yabai -m space --rotate 270
-shift + cmd - space : yabai -m window --toggle float
-shift + cmd - v : yabai -m window --insert south
-shift + cmd - z : yabai -m window --insert east
-
-shift + cmd - s : yabai -m space --layout stack
-shift + cmd - w : yabai -m space --layout bsp
-shift + cmd - x : yabai -m space --layout float
-
-# apps
-cmd - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
-
-# move to spaces
-cmd + shift - 1 : yabai -m window --space 1
-cmd + shift - 2 : yabai -m window --space 2
-cmd + shift - 3 : yabai -m window --space 3
-cmd + shift - 4 : yabai -m window --space 4
-
-# resizing
-ctrl + cmd - h : yabai -m window --resize left:-40:0 ; yabai -m window --resize right:-40:0
-ctrl + cmd - j : yabai -m window --resize bottom:0:40 ; yabai -m window --resize top:0:40
-ctrl + cmd - k : yabai -m window --resize top:0:-40 ; yabai -m window --resize bottom:0:-40
-ctrl + cmd - l : yabai -m window --resize right:40:0 ; yabai -m window --resize left:40:0
+# alt - h : yabai -m window --focus stack.prev || yabai -m window --focus west
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - l : yabai -m window --focus stack.next || yabai -m window --focus east
+#
+# shift + alt - h : yabai -m window --warp west
+# shift + alt - j : yabai -m window --warp south
+# shift + alt - k : yabai -m window --warp north
+# shift + alt - l : yabai -m window --warp east
+#
+# # layouts
+# alt - f : yabai -m window --toggle zoom-fullscreen
+# shift + alt - t : yabai -m window --toggle split
+# shift + alt - b : yabai -m space --balance
+# shift + alt - r : yabai -m space --rotate 270
+# shift + alt - space : yabai -m window --toggle float
+# shift + alt - v : yabai -m window --insert south
+# shift + alt - z : yabai -m window --insert east
+#
+# shift + alt - s : yabai -m space --layout stack
+# shift + alt - w : yabai -m space --layout bsp
+# shift + alt - x : yabai -m space --layout float
+#
+# # apps
+# alt - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
+#
+# # move to spaces
+# alt + shift - 1 : yabai -m window --space 1
+# alt + shift - 2 : yabai -m window --space 2
+# alt + shift - 3 : yabai -m window --space 3
+# alt + shift - 4 : yabai -m window --space 4
+#
+# # resizing
+# ctrl + alt - h : yabai -m window --resize left:-40:0 ; yabai -m window --resize right:-40:0
+# ctrl + alt - j : yabai -m window --resize bottom:0:40 ; yabai -m window --resize top:0:40
+# ctrl + alt - k : yabai -m window --resize top:0:-40 ; yabai -m window --resize bottom:0:-40
+# ctrl + alt - l : yabai -m window --resize right:40:0 ; yabai -m window --resize left:40:0
 
 .blacklist [
     "vmware fusion"
 ]
+
+ctrl - v [
+  "safari": skhd -k "cmd - v"
+  "brave browser": skhd -k "cmd - v"
+  "finder": skhd -k "cmd - v"
+  "obsidian": skhd -k "cmd - v"
+  "mail": skhd -k "cmd - v"
+  "messages": skhd -k "cmd - v"
+  "1password": skhd -k "cmd - v"
+]
+
+ctrl - c [
+  "safari": skhd -k "cmd - c"
+  "brave browser": skhd -k "cmd - c"
+  "finder": skhd -k "cmd - c"
+  "obsidian": skhd -k "cmd - c"
+  "mail": skhd -k "cmd - c"
+  "messages": skhd -k "cmd - c"
+  "1password": skhd -k "cmd - c"
+]
+
+ctrl - f [
+  "brave browser": skhd -k "cmd - f"
+  "obsidian": skhd -k "cmd - f"
+]
+
