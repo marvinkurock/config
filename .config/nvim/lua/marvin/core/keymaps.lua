@@ -36,7 +36,7 @@ keymap("n", "<leader>xu", ":s/\\[x\\]/[ ]<cr>:noh<cr>", opts)
 keymap("n", "<leader>xn", "o- [ ] ", opts)
 keymap("n", "<leader>xd", "dd G p <C-o>k", opts) -- cut the line and paste it to the bottom of the file (move todo to done)
 
-keymap("n", "<C-p>", ":Ex<cr>", opts)
+keymap("n", "<C-p>", ":NvimTreeToggle<cr>", opts)
 -- keymap("n", "<C-x>", ":Bdelete<cr>", opts)
 keymap("n", "<leader>nh", ":noh<cr>", opts)
 keymap("n", "<leader>nw", ":set wrap!<cr>", opts)
