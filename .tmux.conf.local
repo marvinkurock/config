@@ -267,7 +267,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left="  #S "
+tmux_conf_theme_status_left=" #S "
 tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized} #{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
 
 # status left style
@@ -515,11 +515,6 @@ bind -r L resize-pane -R 2
 # for mac with obsidian
 bind -r T neww -c "#{pane_current_path}" "[[ -e TODO.md ]] && nvim TODO.md || nvim '/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/01-Todos.md'"
 bind -r D neww -c "#{pane_current_path}" 'nvim --cmd "cd /Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/" "/Users/marvinkurock/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/daily-notes/$(date +%Y-%m-%d).md"'
-
-bind-key -n ’ select-window -t 1
-bind-key -n ² select-window -t 2
-bind-key -n ³ select-window -t 3
-bind-key -n ¢ select-window -t 4
 
 set -g allow-rename off
 set -g history-limit 10000

@@ -1,4 +1,4 @@
-import = ["/Users/marvinkurock/.config/alacritty/themes/tokyonight.toml"]
+general.import = ["/Users/marvinkurock/.config/alacritty/themes/tokyonight.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -13,26 +13,6 @@ style = "Italic"
 [font.normal]
 family = "MesloLGM Nerd Font Mono"
 style = "Regular"
-
-[[keyboard.bindings]]
-chars = "’"
-key = "Key1"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "²"
-key = "Key2"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "³"
-key = "Key3"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "¢"
-key = "Key4"
-mods = "Control"
 
 [[keyboard.bindings]]
 chars = "\u0000"

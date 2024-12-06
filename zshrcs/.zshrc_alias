@@ -1,5 +1,6 @@
 alias gfb="git branch --remote | fzf | sed 's/origin\///g' | xargs git switch -c"
 alias gamemode="./.config/config-scripts/gamemode.sh"
+alias python=python3
 
 tm ()
 {
@@ -80,5 +81,6 @@ alias kuc="k config use-context"
 alias ll="ls -l"
 alias la="ls -la"
 alias lg="lazygit"
+alias ls="lsd"
 
 alias internetip="curl ipecho.net/plain ; echo"
