@@ -21,12 +21,12 @@ return {
       })
     end
   },
-  -- {
-  --   "windwp/nvim-autopairs",
-  --   config = function()
-  --     require("nvim-autopairs").setup()
-  --   end
-  -- },
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end
+  },
   {
     "folke/which-key.nvim",
     config = function()
