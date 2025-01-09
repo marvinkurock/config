@@ -22,7 +22,7 @@
         { "before": ["leader", "\\"], "commands": ["editor.action.commentLine"] },
         { "before": ["leader", "f", "g"], "commands": ["workbench.view.search"] },
         { "before": ["leader", "G"], "commands": ["lazygitWrapper.open"] },
-        { "before": ["leader", "g", "g" ], "commands": ["workbench.view.scm"] },
+        { "before": ["leader", "g", "g" ], "commands": ["lazygit.openLazygit"] },
         { "before": ["leader", "q", "a" ], "commands": ["openEditors.closeAll"] },
         { "before": ["leader", "c", "f" ], "commands": ["editor.action.formatDocument"] },
         { "before": ["leader", "g", "l" ], "commands": ["git.pull"] },
