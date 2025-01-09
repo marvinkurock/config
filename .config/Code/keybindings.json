@@ -11,29 +11,34 @@
     "when": "editorTextFocus && !editorTabMovesFocus && !github.copilot.panelVisible"
   },
   {
+    "key": "ctrl+e",
+    "command": "hideSuggestWidget",
+    "when": "editorTextFocus && suggestWidgetVisible"
+  },
+  {
     "key": "shift+tab",
     "command": "outdent",
     "when": "editorTextFocus && !editorTabMovesFocus"
   },
   // Terminal mappings
   {
-    "key": "ctrl+z t",
+    "key": "ctrl+b t",
     "command": "workbench.action.togglePanel"
   },
   {
-    "key": "ctrl+z c",
+    "key": "ctrl+b c",
     "command": "workbench.action.terminal.new"
   },
   {
-    "key": "ctrl+z shift+'",
+    "key": "ctrl+b shift+'",
     "command": "workbench.action.terminal.splitInActiveWorkspace"
   },
   {
-    "key": "ctrl+z k",
+    "key": "ctrl+b k",
     "command": "workbench.action.focusActiveEditorGroup"
   },
   {
-    "key": "ctrl+z j",
+    "key": "ctrl+b j",
     "command": "workbench.action.focusPanel"
   },
   {
@@ -107,7 +112,7 @@
   {
     "key": "ctrl+p",
     "command": "workbench.explorer.fileView.focus",
-    "when": "!editorIsOpen && !filesExplorerFocus"
+    "when": "!editorIsOpen && !filesExplorerFocus && !inQuickOpen"
   },
   {
     "key": "tab",
