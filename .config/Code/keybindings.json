@@ -45,6 +45,10 @@
     "key": "ctrl-s",
     "command": "workbench.action.files.save"
   },
+  {
+    "key": "ctrl+.",
+    "command": "editor.action.quickFix"
+  },
   // File tree
   {
     "key": "ctrl+n",

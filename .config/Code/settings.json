@@ -28,7 +28,6 @@
         { "before": ["leader", "g", "l" ], "commands": ["git.pull"] },
         { "before": ["<S-k>"], "commands": ["editor.action.showHover"] },
 
-
         // Rerun last command
         { "before": ["leader", "r" ], "commands": [{ "command": "workbench.action.terminal.sendSequence", "args": {"text": "\u001b[A\u000D"} }] }
     ],
