@@ -44,36 +44,6 @@
     "git.confirmSync": false,
     "explorer.confirmDragAndDrop": false,
     "mssql.connections": [
-        {
-            "server": "tech-excellence.database.windows.net",
-            "database": "TMWDB_Test",
-            "authenticationType": "SqlLogin",
-            "user": "tmw_test",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "Test"
-        },
-        {
-            "server": "tech-excellence.database.windows.net",
-            "database": "TMWDB",
-            "authenticationType": "SqlLogin",
-            "user": "tmw_prod",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "Prod"
-        },
-        {
-            "server": "tech-excellence.database.windows.net",
-            "database": "",
-            "authenticationType": "SqlLogin",
-            "user": "techex",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "TMW - techex"
-        }
     ],
     "security.workspace.trust.untrustedFiles": "open",
     "mssql.enableQueryHistoryCapture": false,

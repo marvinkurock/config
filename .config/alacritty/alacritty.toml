@@ -75,9 +75,13 @@ opacity = 0.92
 option_as_alt = "Both"
 
 [window.dimensions]
-columns = 196
-lines = 54
+columns = 200
+lines = 50
 
 [window.padding]
+x = 10
+y = 10
+
+[window.position]
 x = 10
 y = 10
