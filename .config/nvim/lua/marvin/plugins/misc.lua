@@ -1,5 +1,4 @@
 return {
-  { "numToStr/Comment.nvim" },
   {
     "ellisonleao/gruvbox.nvim",
     config = function()
