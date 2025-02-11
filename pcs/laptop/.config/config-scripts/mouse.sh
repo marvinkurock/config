@@ -21,3 +21,4 @@ done
 
 xinput --set-prop $touchpad_id "libinput Scrolling Pixel Distance" 45
 xinput --set-prop $touchpad_id "libinput Natural Scrolling Enabled" 1
+xinput --set-prop $touchpad_id "libinput Tapping Enabled" 1
