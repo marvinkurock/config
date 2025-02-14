@@ -60,8 +60,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/bin/brightnessctl set +10% && sudo /usr/bin/brightnessctl -s
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/bin/brightnessctl set 10%- && sudo /usr/bin/brightnessctl -s
+bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/brightnessctl set +10% && /usr/bin/brightnessctl -s
+bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/brightnessctl set 10%- && /usr/bin/brightnessctl -s
 
 bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/config-scripts/toggle-touchpad.sh
 
@@ -241,8 +241,8 @@ exec_always --no-startup-id dunst
 # exec_always --no-startup-id prlcc
 # exec_always --no-startup-id ~/.config/scripts/parallels-tools.sh
 # exec_always --no-startup-id prlcp
-exec_always --no-startup-id compton
+exec_always --no-startup-id picom --backend glx
 exec_always --no-startup-id bash ~/.config/config-scripts/mouse.sh
 #exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec --no-startup-id /usr/bin/brightnessctl -r
+exec --no-startup-id brightnessctl -r

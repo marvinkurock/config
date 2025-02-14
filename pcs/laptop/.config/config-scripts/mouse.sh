@@ -15,7 +15,7 @@ for x in "${mice[@]}"; do
   if [ ! -z "$mouse_id" ]; then
     echo "configuring $x"
     xinput --set-prop $mouse_id "libinput Accel Profile Enabled" 0 1 0
-    xinput --set-prop $mouse_id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 2
+    xinput --set-prop $mouse_id "Coordinate Transformation Matrix" 1.5 0 0 0 1.5 0 0 0 2
   fi
 done
 
