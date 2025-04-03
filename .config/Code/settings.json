@@ -1,11 +1,4 @@
 {
-    "workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)",
-    "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.persistentSessionReviveProcess":"never",
-    "terminal.integrated.env.osx": {
-        "PATH": ""
-    },
     "vim.leader": "<Space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         //Remaps
@@ -23,10 +16,12 @@
         { "before": ["leader", "f", "g"], "commands": ["workbench.view.search"] },
         { "before": ["leader", "G"], "commands": ["lazygitWrapper.open"] },
         { "before": ["leader", "g", "g" ], "commands": ["lazygit.openLazygit"] },
-        { "before": ["leader", "q", "a" ], "commands": ["openEditors.closeAll"] },
+        { "before": ["leader", "q", "o" ], "commands": ["workbench.action.closeOtherEditors"] },
+        { "before": ["leader", "1"], "commands": ["workbench.action.closeOtherEditors"] },
         { "before": ["leader", "c", "f" ], "commands": ["editor.action.formatDocument"] },
         { "before": ["leader", "g", "l" ], "commands": ["git.pull"] },
         { "before": ["<S-k>"], "commands": ["editor.action.showHover"] },
+        { "before": ["g", "r"], "commands": ["editor.action.rename"]},
 
         // Rerun last command
         { "before": ["leader", "r" ], "commands": [{ "command": "workbench.action.terminal.sendSequence", "args": {"text": "\u001b[A\u000D"} }] }
@@ -37,40 +32,5 @@
         { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
     ],
     "editor.tabSize": 2,
-    "explorer.confirmDelete": false,
-    "git.enableSmartCommit": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "redhat.telemetry.enabled": false,
-    "git.confirmSync": false,
-    "explorer.confirmDragAndDrop": false,
-    "mssql.connections": [
-    ],
-    "security.workspace.trust.untrustedFiles": "open",
-    "mssql.enableQueryHistoryCapture": false,
-    "go.toolsManagement.autoUpdate": true,
-    "python.venvFolders": [
-        "~/tensorflow-metal/"
-    ],
-    "jupyter.askForKernelRestart": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "editor.minimap.enabled": false,
-    // we try to make semantic highlighting look good
-    "editor.semanticHighlighting.enabled": true,
-    // prevent VSCode from modifying the terminal colors
-    "terminal.integrated.minimumContrastRatio": 1,
-    // make the window's titlebar use the workbench colors
-    "window.titleBarStyle": "custom",
-
-    // applicable if you use Go, this is an opt-in flag!
-    "gopls": {
-        "ui.semanticTokens": true
-    },
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
-    "workbench.startupEditor": "none",
-    "editor.fontFamily": "FiraCode Nerd Font"
+    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
 }

@@ -1,144 +1,117 @@
-// Place your key bindings in this file to override the defaultsauto[]
+// Place your key bindings in this file to override the defaults
 [
-  {
-    "key": "ctrl+[Backslash]",
-    "command": "editor.action.commentLine",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "tab",
-    "command": "tab",
-    "when": "editorTextFocus && !editorTabMovesFocus && !github.copilot.panelVisible"
-  },
-  {
-    "key": "ctrl+e",
-    "command": "hideSuggestWidget",
-    "when": "editorTextFocus && suggestWidgetVisible"
-  },
-  {
-    "key": "shift+tab",
-    "command": "outdent",
-    "when": "editorTextFocus && !editorTabMovesFocus"
-  },
-  // Terminal mappings
-  {
-    "key": "ctrl+b t",
-    "command": "workbench.action.togglePanel"
-  },
-  {
-    "key": "ctrl+b c",
-    "command": "workbench.action.terminal.new"
-  },
-  {
-    "key": "ctrl+b shift+'",
-    "command": "workbench.action.terminal.splitInActiveWorkspace"
-  },
-  {
-    "key": "ctrl+b k",
-    "command": "workbench.action.focusActiveEditorGroup"
-  },
-  {
-    "key": "ctrl+b j",
-    "command": "workbench.action.focusPanel"
-  },
-  {
-    "key": "ctrl-s",
-    "command": "workbench.action.files.save"
-  },
-  {
-    "key": "ctrl+.",
-    "command": "editor.action.quickFix"
-  },
-  // File tree
-  {
-    "key": "ctrl+n",
-    "command": "explorer.newFile",
-    "when": "explorerViewletFocus"
-  },
-  {
-    "key": "a",
-    "command": "explorer.newFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "list.focusPageDown",
-    "when": "explorerViewletFocus"
-  },
-  {
-    "key": "ctrl+u",
-    "command": "list.focusPageUp",
-    "when": "explorerViewletFocus"
-  },
-  {
-    "key": "d",
-    "command": "deleteFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "key": "ctrl+p",
-    "command": "workbench.action.closeSidebar",
-    "when": "explorerViewletFocus || searchViewletFocus || activeViewlet == 'workbench.view.scm'"
-  },
-  {
-    "key": "tab",
-    "command": "list.toggleExpand",
-    "when": "explorerViewletFocus"
-  },
-  {
-    "key": "ctrl+w l",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "explorerViewletFocus"
-  },
-  {
-    "key": "r",
-    "command": "renameFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
-    "key": "enter",
-    "command": "-renameFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
-    "key": "enter",
-    "command": "runCommands",
-    "when": "filesExplorerFocus",
-    "args": {
-      "commands": [
-        "filesExplorer.openFilePreserveFocus",
-        "workbench.action.focusActiveEditorGroup",
-        "workbench.action.closeSidebar"
-      ]
-    }
-  },
-  // Welcome screen
-  {"key": "ctrl+f", "command": "workbench.action.quickOpen" },
-  {"key": "ctrl+p", "command": "workbench.action.quickOpenSelectPrevious", "when": "inQuickOpen" },
-  {"key": "ctrl+n", "command": "workbench.action.quickOpenSelectNext", "when": "inQuickOpen" },
-  {
-    "key": "ctrl+p",
-    "command": "workbench.explorer.fileView.focus",
-    "when": "!editorIsOpen && !filesExplorerFocus && !inQuickOpen"
-  },
-  {
-    "key": "tab",
-    "command": "editor.action.inlineSuggest.commit",
-    "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
-  },
-  {
-    "key": "ctrl+z z",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.toggleMaximizedPanel",
-        "workbench.action.focusPanel"
-      ]
-    }
-  },
-  {
-    "key": "cmd+k cmd+i",
-    "command": "-editor.action.showHover",
-    "when": "editorTextFocus"
-  }
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    // Toggle between terminal and editor focus
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    // File tree
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "list.focusPageDown",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "list.focusPageUp",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.closeSidebar",
+        "when": "explorerViewletFocus || searchViewletFocus || activeViewlet == 'workbench.view.scm'"
+    },
+    {
+        "key": "tab",
+        "command": "list.toggleExpand",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+w l",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "runCommands",
+        "when": "filesExplorerFocus",
+        "args": {
+            "commands": [
+                "filesExplorer.openFilePreserveFocus",
+                "workbench.action.focusActiveEditorGroup",
+                "workbench.action.closeSidebar"
+            ]
+        }
+    },
+    {
+        "key": "ctrl-s",
+        "command": "workbench.action.files.save"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "editor.action.quickFix"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "hideSuggestWidget",
+        "when": "editorTextFocus && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+shift+]",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
+    {
+        "key": "shift+cmd+]",
+        "command": "-workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
+    {
+        "key": "ctrl+shift+[",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
+    {
+        "key": "shift+cmd+[",
+        "command": "-workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
 ]
