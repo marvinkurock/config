@@ -46,6 +46,10 @@
         "when": "explorerViewletFocus || searchViewletFocus || activeViewlet == 'workbench.view.scm'"
     },
     {
+        "key": "ctrl+b",
+        "command": "workbench.action.openRecent"
+    },
+    {
         "key": "tab",
         "command": "list.toggleExpand",
         "when": "explorerViewletFocus"
@@ -100,18 +104,8 @@
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
     {
-        "key": "shift+cmd+]",
-        "command": "-workbench.action.terminal.focusNext",
-        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-    },
-    {
         "key": "ctrl+shift+[",
         "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-    },
-    {
-        "key": "shift+cmd+[",
-        "command": "-workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
 ]
