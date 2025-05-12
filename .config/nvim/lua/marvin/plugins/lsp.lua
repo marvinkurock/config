@@ -38,7 +38,10 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
     require("mason").setup()
     require("mason-lspconfig").setup {
-      ensure_installed = ensure_servers
+      ensure_installed = ensure_servers,
+      automatic_enable = {
+        exclude = {}
+      }
     }
 
     -- CONFIG
@@ -62,10 +65,6 @@ return {
       vim.keymap.set('i', '<C-K>', '<cmd>Lspsaga hover_doc<CR>', opts)
       vim.keymap.set("n", "gr", '<cmd>Lspsaga rename<CR>', opts)
 
-      if client.name == "htmx" then
-        client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-      end
-
       if vim.bo[bufnr].filetype == "helm" then
         vim.diagnostic.disable(bufnr)
         vim.defer_fn(function()
@@ -73,43 +72,54 @@ return {
         end, 1000)
       end
     end
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        nvim_lsp[server_name].setup {
-          on_attach = on_attach,
-          capabilities = capabilities
-        }
-      end,
-      ["lua_ls"] = function()
-        nvim_lsp.lua_ls.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim" }
-              }
-            }
-          }
-        })
-      end,
-      ["emmet_language_server"] = function()
-        nvim_lsp.emmet_language_server.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-          filetypes = { "templ", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
-        })
-      end,
-      ["yamlls"] = function()
-        nvim_lsp.yamlls.setup({
-          settings = {
-            yaml = {
-              keyOrdering = false
-            }
-          }
-        })
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup('my.lsp', {}),
+      callback = function (args)
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        on_attach(client, args.buf)
       end
     })
+
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config('lua_ls', {
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" }
+          }
+        }
+      }
+    })
+
+    vim.lsp.config("yamlls", {
+      settings = {
+        yaml = {
+          keyOrdering = false
+        }
+      }
+    })
+    --   ["emmet_language_server"] = function()
+    --     nvim_lsp.emmet_language_server.setup({
+    --       on_attach = on_attach,
+    --       capabilities = capabilities,
+    --       filetypes = { "templ", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
+    --     })
+    --   end,
+    --   ["yamlls"] = function()
+    --     nvim_lsp.yamlls.setup({
+    --       settings = {
+    --         yaml = {
+    --           keyOrdering = false
+    --         }
+    --       }
+    --     })
+    --   end
+    -- })
 
     local cmp_mappings = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),

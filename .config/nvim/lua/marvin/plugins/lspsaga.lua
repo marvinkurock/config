@@ -1,5 +1,5 @@
 return {
-  "glepnir/lspsaga.nvim",
+  'nvimdev/lspsaga.nvim',
   config = function()
     require('lspsaga').setup({
       lightbulb = {
