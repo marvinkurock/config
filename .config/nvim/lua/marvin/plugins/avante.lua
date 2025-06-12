@@ -41,7 +41,16 @@ local M = {
 
 
 M.opts = {
-  provider = "gemini", -- Recommend using Claude
+  provider = "gemini",
+  providers = {
+    gemini = {
+      -- @see https://ai.google.dev/gemini-api/docs/models/gemini
+      -- model = "gemini-1.5-pro-exp-0827",
+      model = "gemini-2.0-flash",
+      temperature = 0,
+      max_tokens = 4096,
+    }
+  },
   -- auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   behaviour = {
     auto_suggestions = false, -- Experimental stage
@@ -49,13 +58,6 @@ M.opts = {
     auto_set_keymaps = true,
     auto_apply_diff_after_generation = false,
     support_paste_from_clipboard = false,
-  },
-  gemini = {
-    -- @see https://ai.google.dev/gemini-api/docs/models/gemini
-    -- model = "gemini-1.5-pro-exp-0827",
-    model = "gemini-1.5-flash",
-    temperature = 0,
-    max_tokens = 4096,
   },
 }
 
