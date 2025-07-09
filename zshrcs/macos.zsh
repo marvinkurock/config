@@ -1,7 +1,7 @@
 
 export PATH=$HOME/go/bin:$PATH
 
-alias tm="tmux new -A -s 󰣇"
+alias tm="tmux new -A -s "
 alias vim=nvim
 alias wakywaky='wakeonlan 50:EB:F6:5C:4C:59'
 alias open=xdg-open
