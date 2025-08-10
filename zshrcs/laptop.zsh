@@ -1,7 +1,9 @@
 
 export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.platformio/penv/bin:$PATH
 
 alias tm="tmux new -A -s 󰣇"
+alias gpustat='while true; do x=$(cat /sys/class/drm/card1/device/power_state); if [[ $x == "D3cold" ]];then echo -n "🔵"; else echo -n "🔴"; fi; sleep 2; done'
 alias vim=nvim
 alias bose='bluetoothctl connect BC:87:FA:44:FE:C2'
 alias wakywaky='wol 50:EB:F6:5C:4C:59'
