@@ -15,7 +15,7 @@ shift + cmd - l : yabai -m window --warp east
 alt - f : yabai -m window --toggle zoom-fullscreen
 shift + cmd - t : yabai -m window --toggle split
 shift + cmd - b : yabai -m space --balance
-shift + cmd - r : yabai -m space --rotate 270
+shift + alt - r : yabai -m space --rotate 270
 shift + cmd - space : yabai -m window --toggle float
 shift + cmd - v : yabai -m window --insert south
 shift + cmd - z : yabai -m window --insert east

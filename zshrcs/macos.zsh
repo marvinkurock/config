@@ -1,10 +1,14 @@
 
 export PATH=$HOME/go/bin:$PATH
+export rockyou=/opt/wordlists/rockyou.txt
 
 alias tm="tmux new -A -s "
 alias vim=nvim
 alias wakywaky='wakeonlan 50:EB:F6:5C:4C:59'
 alias open=xdg-open
+
+alias k=kubectl
+alias kgp="kubectl get pods"
 
 set -o vi
 if [[ -f "$HOME/.key-bindings.zsh" ]]; then
