@@ -16,6 +16,10 @@ if [[ -f "$HOME/.key-bindings.zsh" ]]; then
   source "$HOME/.key-bindings.zsh"
 fi
 
+if [[ -f "$HOME/.key-bindings.zsh" ]]; then
+  source "$HOME/.key-bindings.zsh"
+fi
+if [[ -f '/usr/share/doc/fzf/examples/key-bindings.zsh' ]] source /usr/share/doc/fzf/examples/key-bindings.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"

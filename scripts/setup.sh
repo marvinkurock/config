@@ -34,10 +34,16 @@ fi
 if [[ ! -d "/opt/nvim" ]]; then
   cd
   sudo mkdir -p /opt/nvim
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-  sudo tar xf nvim-linux-x86_64.tar.gz -C /opt/nvim
-  echo 'export PATH=/opt/nvim/nvim-linux-x86_64/bin:$PATH' >> $HOME/.zshrc
-  ln -s $HOME/repos/config/.config/nvim $HOME/.config/
+  arch="x86_64"
+  if [[ $(uname -r) =~ "arm64" ]]; then 
+    arch="arm64"
+  fi
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-${arch}.tar.gz
+  sudo tar xf nvim-linux-${arch}.tar.gz -C /opt/nvim
+  echo "export PATH=/opt/nvim/nvim-linux-${arch}/bin:\$PATH" >> $HOME/.zshrc
+  if [[ ! -d "$HOME/repos/config/.config/nvim " ]]; then
+    ln -s $HOME/repos/config/.config/nvim $HOME/.config/
+  fi
   echo 'EDITOR=nvim' >> $HOME/.zshrc
   echo 'alias vim=nvim' >> $HOME/.zshrc
 fi
