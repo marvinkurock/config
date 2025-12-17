@@ -10,6 +10,8 @@ alias wakywaky='wol 50:EB:F6:5C:4C:59'
 alias fullwifi='sudo killall -STOP NetworkManager'
 alias open=xdg-open
 alias temp="sensors | grep 'temp[0-9]\|fan:'"
+alias k=kubectl
+alias kgp="kubectl get pods"
 
 set -o vi
 if [[ -f "$HOME/.key-bindings.zsh" ]]; then

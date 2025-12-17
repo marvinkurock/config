@@ -144,10 +144,15 @@ return {
       end),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+        local minuet = require('minuet.virtualtext')
+        if minuet.action.is_visible() == true then
+          minuet.action.accept()
         else
-          fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+          if luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+          end
         end
       end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
