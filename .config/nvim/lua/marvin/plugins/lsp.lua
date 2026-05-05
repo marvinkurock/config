@@ -95,6 +95,9 @@ return {
       capabilities = capabilities,
     })
 
+    vim.lsp.config('intelephense', {
+    })
+
     vim.lsp.config('lua_ls', {
       capabilities = capabilities,
       settings = {

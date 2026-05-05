@@ -25,6 +25,8 @@ keymap("n", "<leader>vp", ":VimuxPromptCommand<cr>", opts)
 keymap("n", "<leader>vz", ":VimuxZoomRunner<cr>", opts)
 keymap("n", "<leader>vq", ":VimuxCloseRunner<cr>", opts)
 keymap("n", "<leader>vc", ":VimuxInterruptRunner<cr>", opts)
+keymap('n', '<leader>g', ':normal vip(DBUI_ExecuteQuery)', { desc = "run query under cursor (mnemonic: Go)" })
+keymap('n', '<localleader>g', ':normal vip<CR><PLUG>(DBUI_ExecuteQuery)', { desc = "run query under cursor (mnemonic: Go)" })
 
 keymap("n", "<leader>r", ":VimuxOpenRunner<cr> :call VimuxSendKeys('up enter')<cr>", opts)
 

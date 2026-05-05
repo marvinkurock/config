@@ -20,7 +20,6 @@ return {
         },
       },
       provider = 'codestral',
-
     }
   end
 }
