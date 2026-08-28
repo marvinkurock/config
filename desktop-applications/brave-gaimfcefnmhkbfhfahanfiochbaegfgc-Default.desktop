@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Media Server
+Exec=/opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gaimfcefnmhkbfhfahanfiochbaegfgc --enable-features=PlatformHEVCDecoderSupport
+Icon=brave-gaimfcefnmhkbfhfahanfiochbaegfgc-Default
+StartupWMClass=crx_gaimfcefnmhkbfhfahanfiochbaegfgc

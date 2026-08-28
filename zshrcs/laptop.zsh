@@ -21,6 +21,7 @@ if [[ -f "$HOME/.key-bindings.zsh" ]]; then
 fi
 
 if [[ -f '/usr/share/fzf/key-bindings.zsh' ]] source /usr/share/fzf/key-bindings.zsh
+if [[ -f '/usr/share/fzf/shell/key-bindings.zsh' ]] source /usr/share/fzf/shell/key-bindings.zsh
 
 if [[ -f '/usr/share/doc/fzf/examples/key-bindings.zsh' ]] source /usr/share/doc/fzf/examples/key-bindings.zsh
 export PYENV_ROOT="$HOME/.pyenv"
