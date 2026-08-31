@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Emby
+Exec=brave-browser --app=https://emby.kurock.io:8920
+Icon=/home/soul/repos/config/icons/emby.png

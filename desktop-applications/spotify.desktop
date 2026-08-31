@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Spotify
+Exec=brave-browser --app=https://open.spotify.com
+Icon=/home/soul/repos/config/icons/spotify.png
